@@ -17,4 +17,7 @@ public abstract class Vehicle implements Llogable {
         this.motor = motor;
         this.roda = roda;
     }
+
+    protected abstract double calcularPreu();
+    protected abstract String calcularEtiquetaAmbiental();
 }
