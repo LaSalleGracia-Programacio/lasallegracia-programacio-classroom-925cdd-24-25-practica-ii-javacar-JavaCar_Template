@@ -1,4 +1,4 @@
 package org.JavaCar;
 
-public class Furgoneta {
+public class Furgoneta{
 }
