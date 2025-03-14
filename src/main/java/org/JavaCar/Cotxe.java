@@ -1,6 +1,6 @@
 package org.JavaCar;
 
-public class Cotxe extends Vehicle {
+public class Cotxe extends Vehicle implements Llogable {
     private int nombrePlaces;
 
     public Cotxe(String matricula, String marca, String model, double preuBase, double motor, double rodes, String etiquetaAmbiental) {
