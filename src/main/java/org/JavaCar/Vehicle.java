@@ -5,6 +5,7 @@ public class Vehicle {
     private String marca;
     private String model;
     private double preuBase;
+    private Motor motor;
+    private Roda roda;
     private String etiquetaAmbiental;
-
 }
