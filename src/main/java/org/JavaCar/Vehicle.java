@@ -1,6 +1,6 @@
 package org.JavaCar;
 
-public class Vehicle {
+public abstract class Vehicle implements Llogable {
     private String matricula;
     private String marca;
     private String model;
@@ -8,4 +8,5 @@ public class Vehicle {
     private Motor motor;
     private Roda roda;
     private String etiquetaAmbiental;
+    public Vehicle (String )
 }
