@@ -1,4 +1,4 @@
 package org.JavaCar;
 
-public class GestorLloguers {
+public static class GestorLloguers {
 }
