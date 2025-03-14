@@ -1,5 +1,5 @@
 package org.JavaCar;
 
-public class Cotxe{
-;
+public class Cotxe extends Vehicle{
+    private int nombrePlaces;
 }
