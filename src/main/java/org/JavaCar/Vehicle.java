@@ -9,7 +9,7 @@ public abstract class  Vehicle implements Llogable {
     private double rodes;
     private String  etiquetaAmbiental;
 
-    public Vehicle(String matricula, String marca, String model, double preuBase, double motor, double rodes, String etiquetaAmbiental) {
+    public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, double rodes, String etiquetaAmbiental) {
         this.matricula = matricula;
         this.marca = marca;
         this.model = model;

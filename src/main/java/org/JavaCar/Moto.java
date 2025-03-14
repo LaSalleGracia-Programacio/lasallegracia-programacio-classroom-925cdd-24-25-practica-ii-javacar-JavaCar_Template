@@ -2,7 +2,7 @@ package org.JavaCar;
 
 public class Moto extends Vehicle {
 
-    public Moto(String matricula, String marca, String model, double preuBase, double motor, double rodes, String etiquetaAmbiental) {
+    public Moto(String matricula, String marca, String model, double preuBase, double cilindrada, double motor, double rodes, String etiquetaAmbiental) {
         super(matricula, marca, model, preuBase, motor, rodes, etiquetaAmbiental);
     }
     private double cilindrada;
