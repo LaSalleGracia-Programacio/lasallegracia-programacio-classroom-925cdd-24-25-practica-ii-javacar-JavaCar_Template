@@ -8,6 +8,15 @@ public class Moto extends Vehicle {
         super(matricula, marca, model, preuBase, motor, rodes);
     }
 
+    @Override
+    public double preuLloguer(int dies) {
+        if (cilindrada > 500) {
+            return super.preuLloguer(dies) + 5 * dies;
+        } else {
+            return super.preuLloguer(dies);
+        }
+    }
+
     public double getCilindrada() {
         return cilindrada;
     }
