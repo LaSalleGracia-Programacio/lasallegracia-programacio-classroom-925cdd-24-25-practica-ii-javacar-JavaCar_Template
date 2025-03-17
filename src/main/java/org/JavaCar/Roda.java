@@ -8,4 +8,6 @@ public class Roda {
         this.tipus = tipus;
         this.potencia = potencia;
     }
+    public String getTipus() {
+    }
 }
