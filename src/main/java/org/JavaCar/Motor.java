@@ -14,6 +14,6 @@ public class Motor {
     }
 
     public double getDiametre() {
-
+        return diametre;
     }
 }
