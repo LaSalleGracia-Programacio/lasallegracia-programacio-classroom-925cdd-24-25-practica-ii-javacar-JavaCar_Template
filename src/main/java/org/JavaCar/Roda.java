@@ -12,6 +12,6 @@ public class Roda {
         return tipus;
     }
     public int getPotencia() {
-
+        return potencia;
     }
 }
