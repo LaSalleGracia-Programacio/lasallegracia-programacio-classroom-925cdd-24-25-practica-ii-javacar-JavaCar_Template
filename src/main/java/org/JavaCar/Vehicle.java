@@ -1,13 +1,13 @@
 package org.JavaCar;
 
-public abstract class  Vehicle implements Llogable {
+public abstract class Vehicle implements Llogable {
     private String matricula;
     private String marca;
     private String model;
     private double preuBase;
     private Motor motor;
     private Roda rodes;
-    private String  etiquetaAmbiental;
+    private String etiquetaAmbiental;
 
     public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda rodes) {
         this.matricula = matricula;
@@ -16,7 +16,7 @@ public abstract class  Vehicle implements Llogable {
         this.preuBase = preuBase;
         this.motor = motor;
         this.rodes = rodes;
-        this.etiquetaAmbiental = etiquetaAmbiental;
+        this.etiquetaAmbiental = calcularEtiquetaAmbiental();
     }
 
     public String getMatricula() {
@@ -45,5 +45,29 @@ public abstract class  Vehicle implements Llogable {
 
     public String getEtiquetaAmbiental() {
         return etiquetaAmbiental;
+    }
+
+    public void setMotor(Motor motor) {
+        this.motor = motor;
+        this.etiquetaAmbiental = calcularEtiquetaAmbiental();
+    }
+
+    private String calcularEtiquetaAmbiental() {
+        String tipusMotor = motor.getTipus().toLowerCase();
+        int potencia = motor.getPotencia();
+
+        if (tipusMotor.contains("electric")) {
+            return "ZERO";
+        } else if (tipusMotor.contains("hibrid")) {
+            return "ECO";
+        } else if (tipusMotor.contains("gasolina") || tipusMotor.contains("diesel")) {
+            if (potencia >= 90) {
+                return "C";
+            } else {
+                return "B";
+            }
+        } else {
+            return null;
+        }
     }
 }
