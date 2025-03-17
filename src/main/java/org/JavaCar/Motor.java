@@ -12,4 +12,8 @@ public class Motor {
     public String getMarca() {
         return marca;
     }
+
+    public double getDiametre() {
+
+    }
 }
