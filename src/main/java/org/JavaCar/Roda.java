@@ -6,5 +6,6 @@ public class Roda {
 
     public Roda(String tipus, int potencia) {
         this.tipus = tipus;
+        this.potencia = potencia;
     }
 }
