@@ -6,6 +6,6 @@ public class Motor {
 
     public Motor(String marca, double diametre) {
         this.marca = marca;
-
+        this.diametre = diametre;
     }
 }
