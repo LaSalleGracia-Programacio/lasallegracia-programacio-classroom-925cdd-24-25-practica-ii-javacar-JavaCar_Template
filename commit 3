@@ -1,0 +1,19 @@
+import java.util.List;
+import java.util.stream.Collectors;
+
+// Classe estàtica GestorLloguers
+class GestorLloguers {
+    public class Vehicle {
+        public static double calcularIngressosTotals(List<Vehicle> vehicles, int dies) {
+            return vehicles.stream().mapToDouble(v -> v.calcularPreu(dies)).sum();
+        }
+
+        public static List<Vehicle> filtrarPerPreu(List<Vehicle> vehicles, double preuMax) {
+            return vehicles.stream().filter(v -> v.calcularPreu(1) <= preuMax).collect(Collectors.toList());
+        }
+
+        double calcularPreu(int i) {
+            return 0;
+        }
+    }
+}
