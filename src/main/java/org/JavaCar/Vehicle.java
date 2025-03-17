@@ -9,7 +9,6 @@ public abstract class Vehicle implements Llogable {
     protected Roda roda;
     protected String etiquetaAmbiental;
 
-    //Afegim constructor per Vehicle
     public Vehicle (String matricula, String marca, String model, double preuBase, Motor motor, Roda roda ) {
         this.matricula = matricula;
         this.marca = marca;
