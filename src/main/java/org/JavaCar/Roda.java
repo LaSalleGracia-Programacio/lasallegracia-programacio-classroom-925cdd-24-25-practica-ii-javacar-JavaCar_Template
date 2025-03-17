@@ -11,4 +11,7 @@ public class Roda {
     public String getTipus() {
         return tipus;
     }
+    public int getPotencia() {
+
+    }
 }
