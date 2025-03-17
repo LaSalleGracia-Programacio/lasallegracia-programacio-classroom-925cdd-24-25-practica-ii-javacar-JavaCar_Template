@@ -19,6 +19,10 @@ public abstract class Vehicle implements Llogable {
         this.etiquetaAmbiental = calcularEtiquetaAmbiental();
     }
 
+    public double preuLloguer(int dies) {
+        return preuBase * dies;
+    }
+
     public String getMatricula() {
         return matricula;
     }
