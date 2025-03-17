@@ -8,4 +8,8 @@ public class Motor {
         this.marca = marca;
         this.diametre = diametre;
     }
+
+    public String getMarca() {
+
+    }
 }
