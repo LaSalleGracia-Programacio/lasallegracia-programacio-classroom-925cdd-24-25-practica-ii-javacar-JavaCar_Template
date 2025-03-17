@@ -1,0 +1,24 @@
+public class main {
+
+    // Classes auxiliars
+    class Motor {
+        String tipus;
+        int potencia;
+
+        public Motor(String tipus, int potencia) {
+            this.tipus = tipus;
+            this.potencia = potencia;
+        }
+    }
+
+
+    class Roda {
+        String marca;
+        double diametre;
+
+        public Roda(String marca, double diametre) {
+            this.marca = marca;
+            this.diametre = diametre;
+        }
+    }
+}
