@@ -9,7 +9,7 @@ public class Moto extends Vehicle {
     }
 
     @Override
-    public double preuLloguer(int dies) {
+    public double calcularPreu(int dies) {
         if (cilindrada > 500) {
             return super.preuLloguer(dies) + 5 * dies;
         } else {

@@ -15,4 +15,9 @@ public class Cotxe extends Vehicle implements Llogable {
     public void setNombrePlaces(int nombrePlaces) {
         this.nombrePlaces = nombrePlaces;
     }
+
+    @Override
+    public double calcularPreu(int dies) {
+        return super.preuLloguer(dies);
+    }
 }
