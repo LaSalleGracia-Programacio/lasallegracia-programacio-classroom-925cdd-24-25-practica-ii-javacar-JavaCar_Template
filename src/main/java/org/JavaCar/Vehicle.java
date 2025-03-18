@@ -66,4 +66,15 @@ public abstract class Vehicle implements Lloguer {
         return motor;
     }
 
+    public Roda[] getRodes() {
+        return rodes;
+    }
+
+    public EtiquetaAmbiental getEtiquetaAmbiental() {
+        return etiquetaAmbiental;
+    }
+
+    // Mètode abstracte que implementen les subclasses
+    public abstract double calcularPreu(int dies);
+    
 }
