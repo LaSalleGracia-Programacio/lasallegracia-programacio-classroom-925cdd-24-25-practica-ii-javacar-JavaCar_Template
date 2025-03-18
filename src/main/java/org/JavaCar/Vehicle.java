@@ -45,4 +45,25 @@ public abstract class Vehicle implements Lloguer {
         }
     }
 
+    // Getters
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public double getPreuBase() {
+        return preuBase;
+    }
+
+    public Motor getMotor() {
+        return motor;
+    }
+
 }
