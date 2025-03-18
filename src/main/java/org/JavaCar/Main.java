@@ -23,5 +23,12 @@ public class Main {
             usuaris[numUsuaris][1] = contrasenya;
             numUsuaris++;
         }
+        public static boolean login(){
+            Scanner input = new Scanner(System.in);
+            System.out.println("Introdueix el nom d'usuari: ");
+            String nomUsuari = input.nextLine();
+            System.out.println("Introdueix la contrasenya: ");
+            String contrasenya = input.nextLine();
+        }
     }
 }
