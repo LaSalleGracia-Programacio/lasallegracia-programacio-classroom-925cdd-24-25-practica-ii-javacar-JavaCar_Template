@@ -19,4 +19,5 @@ public abstract class Vehicle implements Llogable {
     }
 
     protected abstract String calcularEtiquetaAmbiental();
+    ;
 }
