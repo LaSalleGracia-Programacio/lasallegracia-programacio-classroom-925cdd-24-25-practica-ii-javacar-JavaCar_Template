@@ -24,4 +24,25 @@ public abstract class Vehicle implements Lloguer {
         this.rodes = rodes; // Accepta null
         this.etiquetaAmbiental = calcularEtiqueta();
     }
+
+    // Calcula l'etiqueta ambiental segons el tipus de motor
+    protected EtiquetaAmbiental calcularEtiqueta() {
+        if (motor == null) {
+            return EtiquetaAmbiental.NONE;
+        }
+
+        switch (motor.getTipus().toLowerCase()) {
+            case "electric":
+                return EtiquetaAmbiental.ZERO;
+            case "híbrid":
+                return EtiquetaAmbiental.ECO;
+            case "gasolina":
+                return motor.getPotencia() >= 120 ? EtiquetaAmbiental.C : EtiquetaAmbiental.B;
+            case "diesel":
+                return motor.getPotencia() >= 100 ? EtiquetaAmbiental.B : EtiquetaAmbiental.NONE;
+            default:
+                return EtiquetaAmbiental.NONE;
+        }
+    }
+
 }
