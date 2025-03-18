@@ -19,6 +19,9 @@ public class Main {
             System.out.println("Introdueix una contrasenya: ");
             String contrasenya = input.nextLine();
 
+            usuaris[numUsuaris][0] = nomUsuari;
+            usuaris[numUsuaris][1] = contrasenya;
+            numUsuaris++;
         }
     }
 }
