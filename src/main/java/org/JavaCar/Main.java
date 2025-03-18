@@ -6,6 +6,14 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Benvingut a CarManager");
         Scanner input = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Selecciona una opcio: ");
+            System.out.println("(1) Iniciar Sessió");
+            System.out.println("(2) Registrar-me");
+            System.out.println("(3) Sortir");
+            int opcio = input.nextInt();
+        }
     }
 
     public class sistemaLogin{
