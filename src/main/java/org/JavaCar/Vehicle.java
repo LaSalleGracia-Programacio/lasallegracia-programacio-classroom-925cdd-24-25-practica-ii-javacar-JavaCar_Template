@@ -76,5 +76,4 @@ public abstract class Vehicle implements Lloguer {
 
     // Mètode abstracte que implementen les subclasses
     public abstract double calcularPreu(int dies);
-    
 }
