@@ -12,3 +12,16 @@ public class Moto extends Vehicle {
         super(matricula, marca, model, preuBase, motor, rodes);
         this.cilindrada = cilindrada;
     }
+    public int getCilindrada() {
+        return cilindrada;
+    }
+
+    @Override
+    public double calcularPreu(int dies) {
+        double preuTotal = preuBase * dies;
+        if (cilindrada >= 600) {
+            preuTotal += 5 * dies; // Afegir un suplement de 5 € per dia si la cilindrada >= 600
+        }
+        return preuTotal;
+    }
+}
