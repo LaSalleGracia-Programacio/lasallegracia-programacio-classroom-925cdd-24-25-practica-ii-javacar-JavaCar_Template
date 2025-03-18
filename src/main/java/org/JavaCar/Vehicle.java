@@ -3,7 +3,7 @@ package org.JavaCar;
 /**
  * Classe abstracta que representa un vehicle de lloguer.
  */
-public abstract class Vehicle implements Lloguer {
+public abstract class Vehicle implements Llogable {
 
     // Atributs (protected per accés des de subclasses)
     protected String matricula;

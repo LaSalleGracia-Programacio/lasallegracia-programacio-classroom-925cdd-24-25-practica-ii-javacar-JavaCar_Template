@@ -2,7 +2,7 @@ package org.JavaCar;
 /**
  * Interfície que defineix el mètode per calcular el preu del lloguer.
  */
-public interface Lloguer {
+public interface Llogable {
     /**
      * Calcula el preu del lloguer en funció dels dies.
      *
