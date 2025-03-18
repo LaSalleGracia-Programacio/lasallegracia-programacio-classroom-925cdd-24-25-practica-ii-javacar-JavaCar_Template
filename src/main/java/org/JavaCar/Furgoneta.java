@@ -11,3 +11,16 @@ public class Furgoneta extends Vehicle {
         super(matricula, marca, model, preuBase, motor, rodes);
         this.capacitatCarga = capacitatCarga;
     }
+    public double getCapacitatCarga() {
+        return capacitatCarga;
+    }
+
+    @Override
+    public double calcularPreu(int dies) {
+        double preuTotal = preuBase * dies;
+        if (capacitatCarga >= 1000) {
+            preuTotal += 10 * dies; // Afegir un suplement de 10 € per dia si la càrrega >= 1000 kg
+        }
+        return preuTotal;
+    }
+}
