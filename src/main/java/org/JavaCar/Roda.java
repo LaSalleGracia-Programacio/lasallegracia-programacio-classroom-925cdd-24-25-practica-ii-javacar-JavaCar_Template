@@ -8,3 +8,11 @@ public class Roda {
         this.marca = marca;
         this.diametre = diametre;
     }
+    public String getMarca() {
+        return marca;
+    }
+
+    public int getDiametre() {
+        return diametre;
+    }
+}
