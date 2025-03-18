@@ -1,4 +1,3 @@
-// Archivo: Cotxe.java
 package org.JavaCar;
 
 /**

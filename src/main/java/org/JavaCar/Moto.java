@@ -1,4 +1,3 @@
-// Archivo: Moto.java
 package org.JavaCar;
 
 /**
