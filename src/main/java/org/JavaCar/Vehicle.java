@@ -11,7 +11,7 @@ public abstract class Vehicle implements Lloguer {
     protected String model;
     protected double preuBase;
     protected Motor motor;
-    protected int roda; // Diàmetre de les rodes (totes iguals).
+    protected Roda[] rodes; // Diàmetre de les rodes (totes iguals).
     protected EtiquetaAmbiental etiquetaAmbiental;
 
     // Constructor
