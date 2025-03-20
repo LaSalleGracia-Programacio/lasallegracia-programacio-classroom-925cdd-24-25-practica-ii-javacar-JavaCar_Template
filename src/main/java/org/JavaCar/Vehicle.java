@@ -1,9 +1,9 @@
 package org.JavaCar;
 
 public abstract class Vehicle implements Llogable {
-    private String matricula;
-    private String marca;
-    private String model;
+    protected String matricula;
+    protected String marca;
+    protected String model;
     private double preuBase;
     private Motor motor;
     private Roda[] rodes;
@@ -57,6 +57,12 @@ public abstract class Vehicle implements Llogable {
     }
 
     private String calcularEtiquetaAmbiental() {
+
+        if (motor == null || motor.getTipus() == null) {
+            etiquetaAmbiental = "Sense etiqueta";
+            return etiquetaAmbiental;
+        }
+
         String tipusMotor = motor.getTipus().toLowerCase();
         int potencia = motor.getPotencia();
 
