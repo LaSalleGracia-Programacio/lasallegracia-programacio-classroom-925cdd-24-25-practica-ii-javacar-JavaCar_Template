@@ -28,4 +28,13 @@ public class Main {
         } while (opcio != 6);
     }
 
+    public static int pedirOpcion(int v1, int v2) {
+        Scanner input = new Scanner(System.in);
+        int opcio = input.nextInt();
+        while (opcio < v1 || opcio > v2) {
+            System.out.println("Opció incorrecta. Torna a introduir una opció:");
+            opcio = input.nextInt();
+        }
+        return opcio;
+    }
 }
