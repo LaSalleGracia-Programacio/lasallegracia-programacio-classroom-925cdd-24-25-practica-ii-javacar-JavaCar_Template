@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43492e4d-515f-4818-bda0-937c79582ea4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/JavaCar/Llogable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/JavaCar/Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/JavaCar/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/JavaCar/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +16,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
