@@ -19,7 +19,7 @@ public class Motor {
         return potencia;
     }
 
-    public int getAutonomia() { 
+    public int getAutonomia() {
         return autonomia;
     }
 }

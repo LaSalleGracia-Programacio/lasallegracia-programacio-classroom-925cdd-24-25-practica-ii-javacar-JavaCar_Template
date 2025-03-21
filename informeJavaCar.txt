@@ -1,10 +1,10 @@
 INFORME DE VEHICLES
 =====================
 --------------------------------
-Matrícula: ABC1234
+Matrícula: 1234ABC
 Marca: Audi
 Model: R6
-Preu base: 70000.0€
-Motor: V6 - 250 CV
-Etiqueta Ambiental: null
+Preu base: 65000.0€
+Motor: null - 0 CV
+Etiqueta Ambiental: Sense distintiu
 Estat: DISPONIBLE
