@@ -1,6 +1,6 @@
 package org.JavaCar;
 
 interface Llogable {
-    double calcularPreue(int dies);
+    double calcularPreu(int dies);
 
 }
