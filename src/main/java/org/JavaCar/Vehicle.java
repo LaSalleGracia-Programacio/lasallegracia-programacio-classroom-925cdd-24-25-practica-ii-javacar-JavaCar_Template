@@ -38,4 +38,35 @@ public abstract class Vehicle implements Llogable {
                 return EtiquetaAmbiental.NONE;
         }
     }
+    //getters
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public double getPreuBase() {
+        return preuBase;
+    }
+
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public Roda[] getRodes() {
+        return rodes;
+    }
+
+    public EtiquetaAmbiental getEtiquetaAmbiental() {
+        return etiquetaAmbiental;
+    }
+
+
 }
+
