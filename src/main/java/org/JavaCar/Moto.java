@@ -18,6 +18,11 @@ public class Moto extends Vehicle {
     }
 
     @Override
+    public double calcularPreu(int dies) {
+        return 0;
+    }
+
+    @Override
     public String getPollutionSticker() {
         return getEtiquetaAmbiental();
     }
