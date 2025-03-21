@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37ea95ef-243c-46eb-b86d-433eb9d34564" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/JavaCar/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/JavaCar/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +68,9 @@
       <workItem from="1742206857026" duration="2365000" />
       <workItem from="1742232507421" duration="356000" />
       <workItem from="1742288662111" duration="1178000" />
-      <workItem from="1742290300477" duration="905000" />
+      <workItem from="1742290300477" duration="941000" />
+      <workItem from="1742383082308" duration="65000" />
+      <workItem from="1742547033732" duration="70000" />
     </task>
     <servers />
   </component>
