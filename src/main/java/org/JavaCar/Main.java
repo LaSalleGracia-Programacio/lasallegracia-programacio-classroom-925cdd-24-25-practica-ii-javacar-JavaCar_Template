@@ -2,6 +2,8 @@ package org.JavaCar;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
     private static ArrayList<Vehicle> vehicles = new ArrayList<>();
@@ -37,10 +39,15 @@ public class Main {
                     veureVehicles();
                     break;
                 case 3:
-                        break;
+                    llogarVehicle();
+                    break;
                 case 4:
+                    retornarVehicle();
                     break;
                 case 5:
+                    crearInformeVehicles();
+                    break;
+                case 6:
                     break;
             }
         } while (opcio != 6);
@@ -211,4 +218,94 @@ public class Main {
             System.out.println("Matrícula: " + v.getMatricula() + ", Marca: " + v.getMarca() + ", Model: " + v.getModel());
         }
     }
+    public static void llogarVehicle() {
+        if (vehicles.isEmpty()) {
+            System.out.println("No hi ha vehicles disponibles.");
+            return;
+        }
+
+        System.out.println("Llista de vehicles disponibles:");
+        for (int i = 0; i < vehicles.size(); i++) {
+            if (!vehicles.get(i).isLlogat()) {
+                System.out.println(i + ". " + vehicles.get(i).getMatricula() + " - " + vehicles.get(i).getMarca() + " " + vehicles.get(i).getModel());
+            }
+        }
+
+        System.out.print("Selecciona el número del vehicle que vols llogar: ");
+        int index = input.nextInt();
+        input.nextLine(); // Limpiar buffer
+
+        if (index < 0 || index >= vehicles.size() || vehicles.get(index).isLlogat()) {
+            System.out.println("Selecció no vàlida.");
+            return;
+        }
+
+        System.out.print("Introdueix el nombre de dies de lloguer: ");
+        int dies = input.nextInt();
+        input.nextLine(); // Limpiar buffer
+
+        double preuTotal = vehicles.get(index).calcularPreu(dies);
+        vehicles.get(index).setLlogat(true);
+
+        System.out.println("Has llogat el vehicle " + vehicles.get(index).getMatricula() + " per " + dies + " dies.");
+        System.out.println("Preu total: " + preuTotal + "€");
+    }
+
+    public static void retornarVehicle() {
+        if (vehicles.isEmpty()) {
+            System.out.println("No hi ha vehicles per retornar.");
+            return;
+        }
+
+        System.out.println("Llista de vehicles llogats:");
+        for (int i = 0; i < vehicles.size(); i++) {
+            if (vehicles.get(i).isLlogat()) {
+                System.out.println(i + ". " + vehicles.get(i).getMatricula() + " - " + vehicles.get(i).getMarca() + " " + vehicles.get(i).getModel());
+            }
+        }
+
+        System.out.print("Selecciona el número del vehicle que vols retornar: ");
+        int index = input.nextInt();
+        input.nextLine(); // Limpiar buffer
+
+        if (index < 0 || index >= vehicles.size() || !vehicles.get(index).isLlogat()) {
+            System.out.println("Selecció no vàlida.");
+            return;
+        }
+
+        vehicles.get(index).setLlogat(false);
+        System.out.println("Has retornat el vehicle " + vehicles.get(index).getMatricula() + ".");
+    }
+
+    public static void crearInformeVehicles() {
+        if (vehicles.isEmpty()) {
+            System.out.println("No hi ha vehicles registrats.");
+            return;
+        }
+
+        String nombreArchivo = "informeJavaCar.txt";
+
+        try (FileWriter writer = new FileWriter(nombreArchivo)) {
+            writer.write("INFORME DE VEHICLES\n");
+            writer.write("=====================\n");
+
+            for (Vehicle v : vehicles) {
+                writer.write("--------------------------------\n");
+                writer.write("Matrícula: " + v.getMatricula() + "\n");
+                writer.write("Marca: " + v.getMarca() + "\n");
+                writer.write("Model: " + v.getModel() + "\n");
+                writer.write("Preu base: " + v.getPreuBase() + "€\n");
+                writer.write("Motor: " + v.getMotor().getTipus() + " - " + v.getMotor().getPotencia() + " CV\n");
+                writer.write("Etiqueta Ambiental: " + v.getEtiquetaAmbiental() + "\n");
+                writer.write("Estat: " + (v.isLlogat() ? "LLOGAT" : "DISPONIBLE") + "\n");
+            }
+
+            System.out.println("✅ Informe generat correctament en: " + nombreArchivo);
+        } catch (IOException e) {
+            System.out.println("❌ Error en guardar l'informe: " + e.getMessage());
+        }
+    }
 }
+
+
+
