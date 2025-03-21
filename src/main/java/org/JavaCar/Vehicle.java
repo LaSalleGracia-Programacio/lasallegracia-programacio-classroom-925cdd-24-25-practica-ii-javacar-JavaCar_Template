@@ -78,12 +78,12 @@ public abstract class Vehicle implements Llogable {
         String tipusMotor = motor.getTipus();
         int autonomia = motor.getAutonomia();
 
-        if ((anyMatriculacio >= 2001 && motor.getTipus().equals("Gasolina")) ||
-                (anyMatriculacio >= 2006 && motor.getTipus().equals("Diesel"))) {
+        if ((anyMatriculacio >= 2001 && tipusMotor.equals("Gasolina")) ||
+                (anyMatriculacio >= 2006 && tipusMotor.equals("Diesel"))) {
             return "B";
         }
-        else if ((anyMatriculacio >= 2006 && motor.getTipus().equals("Gasolina")) ||
-                (anyMatriculacio >= 2015 && mesMatriculacio >= 9 && motor.getTipus().equals("Diesel"))) {
+        else if ((anyMatriculacio >= 2006 && tipusMotor.equals("Gasolina")) ||
+                (anyMatriculacio >= 2015 && mesMatriculacio >= 9 && tipusMotor.equals("Diesel"))) {
             return "C";
         }
         else if ((tipusMotor.equals("HEV") || tipusMotor.equals("GLP") || tipusMotor.equals("GNL") || tipusMotor.equals("GNC")) && autonomia < 40) {
