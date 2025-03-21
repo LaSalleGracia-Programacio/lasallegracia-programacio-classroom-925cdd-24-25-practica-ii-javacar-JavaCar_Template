@@ -33,6 +33,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Creacio__Classes__Vehicles&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -71,6 +72,8 @@
       <workItem from="1742290300477" duration="941000" />
       <workItem from="1742383082308" duration="65000" />
       <workItem from="1742547033732" duration="70000" />
+      <workItem from="1742554130363" duration="76000" />
+      <workItem from="1742554214434" duration="416000" />
     </task>
     <servers />
   </component>
