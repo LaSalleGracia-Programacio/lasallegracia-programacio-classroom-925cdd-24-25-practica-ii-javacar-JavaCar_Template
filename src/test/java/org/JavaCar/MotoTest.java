@@ -10,12 +10,12 @@ public class MotoTest {
     @Test
     public void testCreacioMoto() {
         Moto moto = new Moto("5678DEF", "Yamaha", "R3", 25, 300, null, null);
-        
+
         assertEquals("5678DEF", moto.getMatricula());
         assertEquals("Yamaha", moto.getMarca());
         assertEquals("R3", moto.getModel());
         assertEquals(25, moto.getPreuBase(), 0.01);
-        assertEquals(300, moto.getCilindrada());
+        assertEquals(300, moto.getCilindrada(), 0.01);
     }
 
     @Test
