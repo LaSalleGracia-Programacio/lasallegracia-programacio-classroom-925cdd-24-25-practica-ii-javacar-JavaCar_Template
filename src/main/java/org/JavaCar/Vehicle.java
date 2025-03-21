@@ -68,7 +68,8 @@ public abstract class Vehicle implements Llogable {
     public EtiquetaAmbiental getEtiquetaAmbiental() {
         return etiquetaAmbiental;
     }
-
+    //metodo abstracto que implenta las subclases
+    public abstract double calcularPreu(int dies);
 
 }
 
