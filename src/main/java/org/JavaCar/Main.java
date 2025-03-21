@@ -112,6 +112,10 @@ public class Main {
         int potenciaMotor = input.nextInt();
         input.nextLine();
 
+        System.out.print("Introdueix l'autonomia del motor (en km): ");
+        int autonomiaMotor = input.nextInt();
+        input.nextLine();
+
         System.out.print("Introdueix el mes de matriculació (1-12): ");
         int mesMatriculacio = input.nextInt();
         input.nextLine();
@@ -120,7 +124,7 @@ public class Main {
         int anyMatriculacio = input.nextInt();
         input.nextLine();
 
-        Motor motor = new Motor(tipusMotor, potenciaMotor);
+        Motor motor = new Motor(tipusMotor, potenciaMotor, autonomiaMotor);
 
         System.out.print("Introdueix el diàmetre de les rodes: ");
         double diametre = input.nextDouble();
@@ -153,13 +157,17 @@ public class Main {
 
         System.out.print("Introdueix la cilindrada: ");
         double cilindrada = input.nextDouble();
-        input.nextLine();
+        input.nextLine(); // Limpiar buffer
 
         System.out.print("Introdueix el tipus de motor: ");
         String tipusMotor = input.nextLine();
 
         System.out.print("Introdueix la potència del motor: ");
         int potenciaMotor = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Introdueix l'autonomia del motor (en km): ");
+        int autonomiaMotor = input.nextInt();
         input.nextLine();
 
         System.out.print("Introdueix el mes de matriculació (1-12): ");
@@ -170,7 +178,8 @@ public class Main {
         int anyMatriculacio = input.nextInt();
         input.nextLine();
 
-        Motor motor = new Motor(tipusMotor, potenciaMotor);
+        // Crear el objeto Motor
+        Motor motor = new Motor(tipusMotor, potenciaMotor, autonomiaMotor);
 
         System.out.print("Introdueix el diàmetre de les rodes: ");
         double diametre = input.nextDouble();
@@ -202,13 +211,17 @@ public class Main {
 
         System.out.print("Introdueix la capacitat de càrrega: ");
         double capacitatCarga = input.nextDouble();
-        input.nextLine();
+        input.nextLine(); // Limpiar buffer
 
         System.out.print("Introdueix el tipus de motor: ");
         String tipusMotor = input.nextLine();
 
         System.out.print("Introdueix la potència del motor: ");
         int potenciaMotor = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Introdueix l'autonomia del motor (en km): ");
+        int autonomiaMotor = input.nextInt();
         input.nextLine();
 
         System.out.print("Introdueix el mes de matriculació (1-12): ");
@@ -219,7 +232,8 @@ public class Main {
         int anyMatriculacio = input.nextInt();
         input.nextLine();
 
-        Motor motor = new Motor(tipusMotor, potenciaMotor);
+        // Crear el objeto Motor
+        Motor motor = new Motor(tipusMotor, potenciaMotor, autonomiaMotor);
 
         System.out.print("Introdueix el diàmetre de les rodes: ");
         double diametre = input.nextDouble();
@@ -228,9 +242,11 @@ public class Main {
         System.out.print("Introdueix la marca de les rodes: ");
         String marcaRoda = input.nextLine();
 
+        // Crear las ruedas (una furgoneta tiene 4 ruedas)
         Roda[] rodes = {new Roda(marcaRoda, diametre), new Roda(marcaRoda, diametre),
                 new Roda(marcaRoda, diametre), new Roda(marcaRoda, diametre)};
 
+        // Crear el objeto Furgoneta y añadirlo a la lista de vehículos
         Vehicle furgoneta = new Furgoneta(matricula, marca, model, preuBase, capacitatCarga, motor, rodes, mesMatriculacio, anyMatriculacio);
         vehicles.add(furgoneta);
 
