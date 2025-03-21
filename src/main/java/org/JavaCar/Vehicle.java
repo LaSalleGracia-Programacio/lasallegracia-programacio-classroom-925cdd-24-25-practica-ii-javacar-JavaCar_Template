@@ -1,26 +1,30 @@
 package org.JavaCar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 abstract class Vehicle implements Llogable {
+
     protected String matricula;
     protected String marca;
-    protected String modelo;
-    protected List<Roda> rodes;
-    protected Motor motor;
+    protected String model;
+    protected int anyFabricacio;
     protected String tipusCombustible;
     protected String etiquetaAmbiental;
+    protected List<Roda> rodes;
+    protected Motor motor;
 
-    public Vehicle(String matricula, String marca, String model, Motor motor, String tipusCombustible, String etiquetaAmbiental) {
+    public Vehicle(String matricula, String marca, String model, int anyFabricacio, String tipusCombustible, String etiquetaAmbiental, List<Roda> rodes, Motor motor) {
         this.matricula = matricula;
         this.marca = marca;
-        this.modelo = modelo;
-        this.rodes = new ArrayList<>();
-        this.motor = motor;
+        this.model = model;
+        this.anyFabricacio = anyFabricacio;
         this.tipusCombustible = tipusCombustible;
         this.etiquetaAmbiental = etiquetaAmbiental;
-
+        this.rodes = rodes;
+        this.motor = motor;
     }
+
     public String getMatricula() {
         return matricula;
     }
@@ -28,16 +32,25 @@ abstract class Vehicle implements Llogable {
    public String getMarca() {
         return marca;
    }
-   public String getModelo() {
-        return modelo;
+   public String getModel() {
+        return model;
    }
 
     public Motor getMotor() {
         return motor;
     }
-    public void addRoda(Roda roda){
-        rodes.add(roda);
-    }
+   public int getAnyFabricacio() {
+        return anyFabricacio;
+   }
+   public String getTipusCombustible() {
+        return tipusCombustible;
+   }
+   public String getEtiquetaAmbiental() {
+        return etiquetaAmbiental;
+   }
+   public List<Roda> getRodes(){
+        return rodes;
+   }
     public abstract double calcularPreu(int dies);
 
 
