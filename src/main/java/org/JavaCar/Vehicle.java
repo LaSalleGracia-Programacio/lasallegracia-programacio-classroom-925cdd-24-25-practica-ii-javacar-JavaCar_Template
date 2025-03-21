@@ -7,6 +7,7 @@ public abstract class Vehicle implements Llogable {
     protected double preuBase;
     protected Motor motor;
     protected Roda[] rodes;
+    protected int anyMatriculacio;
 
     public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda[] rodes) {
         this.matricula = matricula;
