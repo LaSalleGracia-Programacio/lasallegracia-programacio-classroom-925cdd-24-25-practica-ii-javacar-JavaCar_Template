@@ -8,6 +8,26 @@ public abstract class Vehicle implements Llogable {
     private Motor motor;
     private Roda[] rodes;
     private String etiquetaAmbiental;
+    private boolean llogat;
+    private int mesMatriculacio;
+    private int anyMatriculacio;
+
+    public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda[] rodes, int mesMatriculacio, int anyMatriculacio) {
+        this.matricula = matricula;
+        this.marca = marca;
+        this.model = model;
+        this.preuBase = preuBase;
+        this.motor = motor;
+        this.rodes = rodes;
+        this.mesMatriculacio = mesMatriculacio;
+        this.anyMatriculacio = anyMatriculacio;
+        this.etiquetaAmbiental = calcularEtiquetaAmbiental();
+        this.llogat = false;
+    }
+
+    public double preuLloguer(int dies) {
+        return preuBase * dies;
+    }
 
     public boolean isLlogat() {
         return llogat;
@@ -15,22 +35,6 @@ public abstract class Vehicle implements Llogable {
 
     public void setLlogat(boolean llogat) {
         this.llogat = llogat;
-    }
-
-    private boolean llogat;
-
-    public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda[] rodes) {
-        this.matricula = matricula;
-        this.marca = marca;
-        this.model = model;
-        this.preuBase = preuBase;
-        this.motor = motor;
-        this.rodes = rodes;
-        this.etiquetaAmbiental = calcularEtiquetaAmbiental();
-    }
-
-    public double preuLloguer(int dies) {
-        return preuBase * dies;
     }
 
     public String getMatricula() {
@@ -67,27 +71,29 @@ public abstract class Vehicle implements Llogable {
     }
 
     private String calcularEtiquetaAmbiental() {
-
         if (motor == null || motor.getTipus() == null) {
-            etiquetaAmbiental = "Sense etiqueta";
-            return etiquetaAmbiental;
+            return "Sense distintiu";
         }
 
-        String tipusMotor = motor.getTipus().toLowerCase();
-        int potencia = motor.getPotencia();
+        String tipusMotor = motor.getTipus();
+        int autonomia = motor.getAutonomia();
 
-        if (tipusMotor.contains("electric")) {
-            return "ZERO";
-        } else if (tipusMotor.contains("hibrid")) {
-            return "ECO";
-        } else if (tipusMotor.contains("gasolina") || tipusMotor.contains("diesel")) {
-            if (potencia >= 90) {
-                return "C";
-            } else {
-                return "B";
-            }
-        } else {
-            return null;
+        if ((anyMatriculacio >= 2001 && motor.getTipus().equals("Gasolina")) ||
+                (anyMatriculacio >= 2006 && motor.getTipus().equals("Diesel"))) {
+            return "B";
+        }
+        else if ((anyMatriculacio >= 2006 && motor.getTipus().equals("Gasolina")) ||
+                (anyMatriculacio >= 2015 && mesMatriculacio >= 9 && motor.getTipus().equals("Diesel"))) {
+            return "C";
+        }
+        else if ((tipusMotor.equals("HEV") || tipusMotor.equals("GLP") || tipusMotor.equals("GNL") || tipusMotor.equals("GNC")) && autonomia < 40) {
+            return "Eco";
+        }
+        else if ((tipusMotor.equals("BEV") || tipusMotor.equals("REEV") || tipusMotor.equals("PHEV")) && autonomia >= 40) {
+            return "Zero Emissions";
+        }
+        else {
+            return "Sense etiqueta";
         }
     }
 }

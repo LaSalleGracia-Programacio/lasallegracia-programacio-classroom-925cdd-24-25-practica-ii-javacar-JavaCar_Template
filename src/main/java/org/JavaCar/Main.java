@@ -112,6 +112,14 @@ public class Main {
         int potenciaMotor = input.nextInt();
         input.nextLine();
 
+        System.out.print("Introdueix el mes de matriculació (1-12): ");
+        int mesMatriculacio = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Introdueix l'any de matriculació: ");
+        int anyMatriculacio = input.nextInt();
+        input.nextLine();
+
         Motor motor = new Motor(tipusMotor, potenciaMotor);
 
         System.out.print("Introdueix el diàmetre de les rodes: ");
@@ -124,7 +132,7 @@ public class Main {
         Roda[] rodes = {new Roda(marcaRoda, diametre), new Roda(marcaRoda, diametre),
                 new Roda(marcaRoda, diametre), new Roda(marcaRoda, diametre)};
 
-        Vehicle cotxe = new Cotxe(matricula, marca, model, preuBase, nombrePlaces, motor, rodes);
+        Vehicle cotxe = new Cotxe(matricula, marca, model, preuBase, nombrePlaces, motor, rodes, mesMatriculacio, anyMatriculacio);
         vehicles.add(cotxe);
 
         System.out.println("Cotxe creat correctament!");
@@ -154,6 +162,14 @@ public class Main {
         int potenciaMotor = input.nextInt();
         input.nextLine();
 
+        System.out.print("Introdueix el mes de matriculació (1-12): ");
+        int mesMatriculacio = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Introdueix l'any de matriculació: ");
+        int anyMatriculacio = input.nextInt();
+        input.nextLine();
+
         Motor motor = new Motor(tipusMotor, potenciaMotor);
 
         System.out.print("Introdueix el diàmetre de les rodes: ");
@@ -165,7 +181,7 @@ public class Main {
 
         Roda[] rodes = {new Roda(marcaRoda, diametre), new Roda(marcaRoda, diametre)};
 
-        Vehicle moto = new Moto(matricula, marca, model, preuBase, cilindrada, motor, rodes);
+        Vehicle moto = new Moto(matricula, marca, model, preuBase, cilindrada, motor, rodes, mesMatriculacio, anyMatriculacio);
         vehicles.add(moto);
 
         System.out.println("Moto creada correctament!");
@@ -195,6 +211,14 @@ public class Main {
         int potenciaMotor = input.nextInt();
         input.nextLine();
 
+        System.out.print("Introdueix el mes de matriculació (1-12): ");
+        int mesMatriculacio = input.nextInt();
+        input.nextLine();
+
+        System.out.print("Introdueix l'any de matriculació: ");
+        int anyMatriculacio = input.nextInt();
+        input.nextLine();
+
         Motor motor = new Motor(tipusMotor, potenciaMotor);
 
         System.out.print("Introdueix el diàmetre de les rodes: ");
@@ -207,7 +231,7 @@ public class Main {
         Roda[] rodes = {new Roda(marcaRoda, diametre), new Roda(marcaRoda, diametre),
                 new Roda(marcaRoda, diametre), new Roda(marcaRoda, diametre)};
 
-        Vehicle furgoneta = new Furgoneta(matricula, marca, model, preuBase, capacitatCarga, motor, rodes);
+        Vehicle furgoneta = new Furgoneta(matricula, marca, model, preuBase, capacitatCarga, motor, rodes, mesMatriculacio, anyMatriculacio);
         vehicles.add(furgoneta);
 
         System.out.println("Furgoneta creada correctament!");
