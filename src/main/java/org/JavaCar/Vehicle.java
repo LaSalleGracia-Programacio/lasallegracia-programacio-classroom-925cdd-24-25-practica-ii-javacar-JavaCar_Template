@@ -19,4 +19,23 @@ public abstract class Vehicle implements Llogable {
         this.rodes = rodes;
         this.etiquetaAmbiental = etiquetaAmbiental;
     }
+
+    protected  EtiquetaAmbiental calcularEtiqueta() {
+        if (motor == null) {
+            return EtiquetaAmbiental.NONE; //el none es que no tiene etiqueta medioambiental
+        }
+
+        switch (motor.getTipus().toLowerCase()){
+            case "electric":
+                return EtiquetaAmbiental.ZERO;
+            case "híbrid":
+                return EtiquetaAmbiental.ECO;
+            case "gasolina":
+                return motor.getPotencia() >= 120 ? EtiquetaAmbiental.C : EtiquetaAmbiental.B;
+            case "diesel":
+                return motor.getPotencia() >= 100 ? EtiquetaAmbiental.B : EtiquetaAmbiental.NONE;
+            default:
+                return EtiquetaAmbiental.NONE;
+        }
+    }
 }
