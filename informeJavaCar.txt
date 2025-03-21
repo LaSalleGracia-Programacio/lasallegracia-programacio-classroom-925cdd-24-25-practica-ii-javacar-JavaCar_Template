@@ -4,7 +4,15 @@ INFORME DE VEHICLES
 Matrícula: 1234ABC
 Marca: Audi
 Model: R6
-Preu base: 65000.0€
-Motor: null - 0 CV
-Etiqueta Ambiental: Sense distintiu
+Preu base: 100.0€
+Motor: HEV - 200 CV
+Etiqueta Ambiental: Sense etiqueta
+Estat: DISPONIBLE
+--------------------------------
+Matrícula: 1234ABC
+Marca: Manolo
+Model: Manolite
+Preu base: 60.0€
+Motor: BEV - 200 CV
+Etiqueta Ambiental: Zero Emissions
 Estat: DISPONIBLE

@@ -159,7 +159,7 @@ public class Main {
         double cilindrada = input.nextDouble();
         input.nextLine(); // Limpiar buffer
 
-        System.out.print("Introdueix el tipus de motor: ");
+        System.out.print("Introdueix el tipus de motor(Gasolina, diesel...): ");
         String tipusMotor = input.nextLine();
 
         System.out.print("Introdueix la potència del motor: ");
@@ -242,11 +242,9 @@ public class Main {
         System.out.print("Introdueix la marca de les rodes: ");
         String marcaRoda = input.nextLine();
 
-        // Crear las ruedas (una furgoneta tiene 4 ruedas)
         Roda[] rodes = {new Roda(marcaRoda, diametre), new Roda(marcaRoda, diametre),
                 new Roda(marcaRoda, diametre), new Roda(marcaRoda, diametre)};
 
-        // Crear el objeto Furgoneta y añadirlo a la lista de vehículos
         Vehicle furgoneta = new Furgoneta(matricula, marca, model, preuBase, capacitatCarga, motor, rodes, mesMatriculacio, anyMatriculacio);
         vehicles.add(furgoneta);
 

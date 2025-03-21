@@ -1,16 +1,16 @@
 package org.JavaCar;
 
 public abstract class Vehicle implements Llogable {
-    private String matricula;
-    private String marca;
-    private String model;
-    private double preuBase;
-    private Motor motor;
-    private Roda[] rodes;
-    private String etiquetaAmbiental;
-    private boolean llogat;
-    private int mesMatriculacio;
-    private int anyMatriculacio;
+    protected String matricula;
+    protected String marca;
+    protected String model;
+    protected double preuBase;
+    protected Motor motor;
+    protected Roda[] rodes;
+    protected String etiquetaAmbiental;
+    protected boolean llogat;
+    protected int mesMatriculacio;
+    protected int anyMatriculacio;
 
     public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda[] rodes, int mesMatriculacio, int anyMatriculacio) {
         this.matricula = matricula;
