@@ -17,17 +17,13 @@ public class Cotxe extends Vehicle {
         String cotxeInfo = "Marca: " + marca + " | " +
                 "Model: " + model + "\n" +
                 "Matricula: " + matricula + " | " +
-                "Any de matriculació: " + anyMatriculacio + "\n" +
-                "Preu/dia: " + preuBase + " | " +
+                "Any matriculació: " + anyMatriculacio + "\n" +
+                "Preu per dia: " + preuBase + " | " +
                 "Numero de places: " + nombrePlaces + "\n" +
                 "Tipus de motor: " + motor.getTipus() + " | " +
                 "Marca de roda: " + rodes[0].getMarca() + "\n";
         return cotxeInfo;
     }
 
-    @Override
-    public double calcularPreu(int dies) {
-        return 0;
-    }
 }
 
