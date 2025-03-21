@@ -1,4 +1,6 @@
 package org.JavaCar;
 
-public class Vehicle {
+abstract class Vehicle implements Llogable {
+
+
 }
