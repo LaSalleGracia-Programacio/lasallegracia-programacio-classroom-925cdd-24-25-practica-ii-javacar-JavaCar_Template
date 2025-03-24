@@ -1,6 +1,7 @@
 package org.JavaCar;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LlogableGestor {
     public double calcularIngressosTotals(List<Vehicle> vehicles, int dies) {
@@ -10,5 +11,12 @@ public class LlogableGestor {
         }
         return total;
     }
+
+    public List<Vehicle> filtrarPerPreu(List<Vehicle> vehicles, double preuMax) {
+        return vehicles.stream()
+                .filter(v -> v.calcularPreu(1) <= preuMax)
+                .collect(Collectors.toList());
+    }
+
 
 }
