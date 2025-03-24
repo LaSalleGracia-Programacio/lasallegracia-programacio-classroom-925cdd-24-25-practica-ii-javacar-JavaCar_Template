@@ -11,7 +11,7 @@ public class Moto extends Vehicle {
         super(matricula, marca, model, preuBase, motor, rodes);
         this.cilindrada = cilindrada;
     }
-    private int getCilindrada() {
+    public int getCilindrada() {
         return cilindrada;
     }
 
