@@ -12,7 +12,7 @@ public abstract class Vehicle implements Llogable {
     protected Roda[] rodes; // Diàmetre de les rodes (totes iguals).
     protected EtiquetaAmbiental etiquetaAmbiental;
  //constructor
-    public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda[] rodes, EtiquetaAmbiental etiquetaAmbiental) {
+    public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda[] rodes) {
         this.matricula = matricula;
         this.marca = marca;
         this.model = model;
@@ -68,7 +68,7 @@ public abstract class Vehicle implements Llogable {
     public EtiquetaAmbiental getEtiquetaAmbiental() {
         return etiquetaAmbiental;
     }
-    //metodo abstracto que implenta las subclases
+     //metodo abstracto que implenta las subclases
     public abstract double calcularPreu(int dies);
 
 }
