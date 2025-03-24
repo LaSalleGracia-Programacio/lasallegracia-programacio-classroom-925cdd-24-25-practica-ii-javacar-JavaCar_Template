@@ -4,7 +4,6 @@ import org.JavaCar.Vehicle;
 
 
 
-// Asegúrate de importar las clases si están en otro paquete
 // import org.JavaCar.Client;
 // import org.JavaCar.Vehicle;
 
