@@ -1,11 +1,8 @@
 package org.JavaCar;
 
 import org.JavaCar.Vehicle;
+import org.JavaCar.Client;
 
-
-
-// import org.JavaCar.Client;
-// import org.JavaCar.Vehicle;
 
 class ContracteLloguer {
     private int idContracte;
