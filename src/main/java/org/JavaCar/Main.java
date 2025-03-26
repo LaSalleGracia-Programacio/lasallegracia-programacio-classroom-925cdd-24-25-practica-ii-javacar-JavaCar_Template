@@ -644,5 +644,33 @@ public class Main {
             }
         }
     }
+//Permite al administrador gestionar los alquileres: iniciar, finalizar o volver al menú principal
+    private static void gestionarLloguers() {
+        boolean tornar = false;
+        while (!tornar) {
+            System.out.println("\n=== GESTIÓ DE LLOGUERS ===");
+            System.out.println("1. Iniciar lloguer");
+            System.out.println("2. Finalitzar lloguer");
+            System.out.println("3. Tornar al menú d'administrador");
+            System.out.print("Seleccioneu una opció: ");
+
+            int opcio = escaner.nextInt();
+            escaner.nextLine();
+
+            switch (opcio) {
+                case 1:
+                    iniciarLloguer();
+                    break;
+                case 2:
+                    finalitzarLloguer();
+                    break;
+                case 3:
+                    tornar = true;
+                    break;
+                default:
+                    System.out.println("Opció no vàlida. Intenteu-ho novament.");
+            }
+        }
+    }
     }
 }
