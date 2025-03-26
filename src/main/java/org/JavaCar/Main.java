@@ -543,5 +543,40 @@ public class Main {
 
         System.out.println("Vehicle afegit correctament.");
     }
+//Permite al administrador actualizar los detalles de un vehículo, como marca, modelo, precio y motor
+    private static void actualitzarVehicle() {
+        System.out.println("\n=== ACTUALITZAR VEHICLE ===");
+        llistarTotsVehicles();
+        System.out.print("Introduïu la matrícula del vehicle a actualitzar: ");
+        String matricula = escaner.nextLine();
+
+        Vehicle vehicle = trobarVehiclePerMatricula(matricula);
+        if (vehicle != null) {
+            System.out.print("Nova marca (" + vehicle.getMarca() + "): ");
+            String marca = escaner.nextLine();
+            if (marca.length() > 0) vehicle.marca = marca;
+
+            System.out.print("Nou model (" + vehicle.getModel() + "): ");
+            String model = escaner.nextLine();
+            if (model.length() > 0) vehicle.model = model;
+
+            System.out.print("Nou preu base (" + vehicle.getPreuBase() + "): ");
+            String preuStr = escaner.nextLine();
+            if (preuStr.length() > 0) vehicle.preuBase = Double.parseDouble(preuStr);
+
+
+            System.out.print("Nou tipus de motor (" + vehicle.getMotor().getTipus() + "): ");
+            String tipusMotor = escaner.nextLine();
+            if (tipusMotor.length() > 0) vehicle.motor.tipus = tipusMotor;
+
+            System.out.print("Nova potència (" + vehicle.getMotor().getPotencia() + "): ");
+            String potenciaStr = escaner.nextLine();
+            if (potenciaStr.length() > 0) vehicle.motor.potencia = Integer.parseInt(potenciaStr);
+
+            System.out.println("Vehicle actualitzat correctament.");
+        } else {
+            System.out.println("Vehicle no trobat.");
+        }
+    }
     }
 }
