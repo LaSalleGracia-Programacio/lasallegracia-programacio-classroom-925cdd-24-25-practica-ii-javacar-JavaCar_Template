@@ -623,5 +623,26 @@ public class Main {
             System.out.println("Vehicle no trobat.");
         }
     }
+//Muestra todos los vehículos disponibles y su estado (alquilado o disponible)
+    private static void llistarTotsVehicles() {
+        System.out.println("\n=== TOTS ELS VEHICLES ===");
+        for (Vehicle vehicle : vehicles) {
+            mostrarDetallsVehicle(vehicle);
+
+            boolean estaLlogat = false;
+            for (Vehicle llogat : vehiclesLlogats) {
+                if (llogat.getMatricula().equals(vehicle.getMatricula())) {
+                    estaLlogat = true;
+                    break;
+                }
+            }
+
+            if (estaLlogat) {
+                System.out.println("Estat: Llogat");
+            } else {
+                System.out.println("Estat: Disponible");
+            }
+        }
+    }
     }
 }
