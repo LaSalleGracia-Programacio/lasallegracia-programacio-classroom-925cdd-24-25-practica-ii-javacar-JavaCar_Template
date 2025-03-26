@@ -237,5 +237,44 @@ public class Main {
             mostrarDetallsVehicle(vehicle);
         }
     }
+//Filtra y muestra vehículos disponibles según el tipo (coche, moto o furgoneta)
+    private static void filtrarPerTipusVehicle() {
+        System.out.println("\n=== FILTRAR PER TIPUS DE VEHICLE ===");
+        System.out.println("1. Cotxes");
+        System.out.println("2. Motos");
+        System.out.println("3. Furgonetes");
+        System.out.print("Seleccioneu un tipus: ");
+        int tipus = escaner.nextInt();
+        escaner.nextLine();
+
+        // Validar tipus seleccionat
+        if (tipus < 1 || tipus > 3) {
+            System.out.println("Tipus no vàlid.");
+            return;
+        }
+
+        TipusVehicle tipusBuscat = null;
+        switch(tipus) {
+            case 1: tipusBuscat = TipusVehicle.COTXE; break;
+            case 2: tipusBuscat = TipusVehicle.MOTO; break;
+            case 3: tipusBuscat = TipusVehicle.FURGONETA; break;
+        }
+
+        System.out.println("\nResultats del filtre:");
+        for (Vehicle vehicle : vehicles) {
+            // Comprovar disponibilitat
+            boolean disponible = true;
+            for (Vehicle llogat : vehiclesLlogats) {
+                if (llogat.getMatricula().equals(vehicle.getMatricula())) {
+                    disponible = false;
+                    break;
+                }
+            }
+
+            if (disponible && vehicle.getTipus() == tipusBuscat) {
+                mostrarDetallsVehicle(vehicle);
+            }
+        }
+    }
     }
 }
