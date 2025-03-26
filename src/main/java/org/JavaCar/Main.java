@@ -28,5 +28,21 @@ public class Main {
         vehicles.add(furgoneta);
 
         List<Vehicle> historial = new ArrayList<>();
-    }
+
+        System.out.println("Bienvenido al sistema de alquiler de vehículos.");
+        while (true) {
+            System.out.println("\nSeleccione una opción:");
+            System.out.println("1. Ver vehículos disponibles");
+            System.out.println("2. Filtrar vehículos por precio");
+            System.out.println("3. Ver detalles del vehículo");
+            System.out.println("4. Registrar alquiler");
+            System.out.println("5. Consultar historial de alquileres");
+            System.out.println("6. Calcular ingresos totales");
+            System.out.println("7. Consultar etiqueta ambiental");
+            System.out.println("8. Salir");
+
+            int opcion = scanner.nextInt();
+            scanner.nextLine();
+
+        }
 }
