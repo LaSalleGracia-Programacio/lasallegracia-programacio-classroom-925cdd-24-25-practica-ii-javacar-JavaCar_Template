@@ -369,8 +369,6 @@ public class DataHandlers {
      * @return Una instancia de {@code Moto} con los datos proporcionados por el usuario.
      */
     public static Moto crearMoto() {
-        Scanner input = new Scanner(System.in);
-
         System.out.print("Introduce la matrícula: ");
         String matr = input.nextLine();
 
@@ -394,9 +392,19 @@ public class DataHandlers {
         int potenciaMotor = input.nextInt();
         input.nextLine(); // Consumir nueva línea
 
+        // Solicitar el año del vehículo
+        System.out.print("Introduce el año del vehículo: ");
+        int any = input.nextInt();
+        input.nextLine(); // Consumir nueva línea
+
+        // Solicitar el tipo de vehículo
+        System.out.print("Introduce el tipo de vehículo (GASOLINA, ELECTRIC, HIBRID_DIESEL, DIESEL, HIBRID_GASOLINA): ");
+        String tipusVeh = input.nextLine().toUpperCase();
+        tipusVehicle tipus = tipusVehicle.valueOf(tipusVeh); // Convertir a enum
+
         Motor motor = new Motor(tipusMotor, potenciaMotor);
 
-        Roda[] rodes = new Roda[2];
+        Roda[] rodes = new Roda[2]; // Dos ruedas para la moto
         for (int i = 0; i < 2; i++) {
             System.out.println("Introduce los datos de la rueda " + (i + 1) + ":");
             System.out.print("Marca: ");
@@ -407,7 +415,7 @@ public class DataHandlers {
             rodes[i] = new Roda(marcaRoda, diametreRoda);
         }
 
-        return new Moto(matr, marca, model, preu, cilindrada, motor, rodes);
+        return new Moto(matr, marca, model, preu, cilindrada, motor, rodes, any, tipus);
     }
 
     public static void llistarInventari(List<Vehicle> inventari){
