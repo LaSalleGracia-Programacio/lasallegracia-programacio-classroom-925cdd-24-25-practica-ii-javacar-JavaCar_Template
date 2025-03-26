@@ -276,5 +276,38 @@ public class Main {
             }
         }
     }
+//Menú para gestionar vehículos: añadir, actualizar o eliminar vehículos
+    private static void gestionarVehicles() {
+        boolean tornar = false;
+        while (!tornar) {
+            System.out.println("\n=== GESTIÓ DE VEHICLES ===");
+            System.out.println("1. Afegir vehicle");
+            System.out.println("2. Actualitzar vehicle");
+            System.out.println("3. Eliminar vehicle");
+            System.out.println("4. Tornar al menú d'administrador");
+            System.out.print("Seleccioneu una opció: ");
+
+            int opcio = escaner.nextInt();
+            escaner.nextLine(); // Netejar buffer
+
+            switch (opcio) {
+                case 1:
+                    afegirVehicle();
+                    break;
+                case 2:
+                    actualitzarVehicle();
+                    break;
+                case 3:
+                    eliminarVehicle();
+                    break;
+                case 4:
+                    tornar = true;
+                    break;
+                default:
+                    System.out.println("Opció no vàlida. Intenteu-ho novament.");
+            }
+        }
+    }
+
     }
 }
