@@ -1,7 +1,7 @@
 package org.JavaCar;
 import java.util.List;
 
-public class Furgoneta extends Vehicle {
+public class Furgoneta {
     private double capacitatCarga;
 
     public Furgoneta(String matricula, String marca, String model, int anyFabricacio, String tipusCombustible,
