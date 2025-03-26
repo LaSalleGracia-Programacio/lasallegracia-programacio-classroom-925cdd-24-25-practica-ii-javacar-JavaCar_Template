@@ -151,5 +151,15 @@ public class Main {
                     }
                     break;
 
+                case 8:
+                    System.out.println("Gracias por usar el sistema de alquiler. ¡Hasta luego!");
+                    scanner.close();
+                    return;
+
+                default:
+                    System.out.println("Opción no válida. Inténtelo de nuevo.");
+                    break;
+            }
         }
+    }
 }
