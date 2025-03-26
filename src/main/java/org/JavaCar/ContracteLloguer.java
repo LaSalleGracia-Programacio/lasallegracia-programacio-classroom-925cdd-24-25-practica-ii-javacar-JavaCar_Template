@@ -19,6 +19,12 @@ class ContracteLloguer {
         this.preuTotal = vehicle.calcularPreu(diesLloguer);
     }
 
+    public ContracteLloguer(int idContracte, Client client, Vehicle vehicle, int dies) {
+        this.idContracte = idContracte;
+        this.client = client;
+        this.vehicle = vehicle;
+    }
+
     public int getIdContracte() {
         return idContracte;
     }

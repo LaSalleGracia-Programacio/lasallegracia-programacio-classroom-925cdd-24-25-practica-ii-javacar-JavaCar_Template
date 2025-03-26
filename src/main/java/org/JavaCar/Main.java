@@ -27,6 +27,67 @@ public class Main {
         vehicles.add(new Furgoneta("9012-GHI", "Ford", "Transit", 2021, "Dièsel", "C", rodesFurgoneta, motorFurgoneta, 1200));
 
 
+        boolean sortir = false;
+
+        while (!sortir) {
+            System.out.println("\nMenú:");
+            System.out.println("1. Mostrar vehicles disponibles");
+            System.out.println("2. Llogar un vehicle");
+            System.out.println("3. Sortir");
+            System.out.print("Selecciona una opció: ");
+
+            int opcio = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcio) {
+
+                case 1:
+                    System.out.println("\nVehicles disponibles:");
+                    for (int i = 0; i < vehicles.size(); i++) {
+                        System.out.println((i + 1) + ". " + vehicles.get(i).getMarca() + " " + vehicles.get(i).getModel());
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("\nSelecciona el vehicle que vols llogar:");
+                    for (int i = 0; i < vehicles.size(); i++) {
+                        System.out.println((i + 1) + ". " + vehicles.get(i).getMarca() + " " + vehicles.get(i).getModel());
+                    }
+                    System.out.print("Introdueix el número del vehicle: ");
+                    int index = scanner.nextInt() - 1;
+
+                    if (index >= 0 && index < vehicles.size()) {
+                        System.out.print("Quants dies vols llogar-lo? ");
+                        int dies = scanner.nextInt();
+                        scanner.nextLine();
+
+                        Client client = new Client("Joan Pérez", "12345678A", "654321987");
+                        ContracteLloguer contracte = new ContracteLloguer(1, client, vehicles.get(index), dies);
+
+                        System.out.println("\nContracte creat!");
+                        System.out.println("Client: " + contracte.getClient().getNom());
+                        System.out.println("Vehicle: " + contracte.getVehicle().getMarca() + " " + contracte.getVehicle().getModel());
+                        System.out.println("Preu total del lloguer: " + contracte.getPreuTotal() + "€");
+                    } else {
+                        System.out.println("Opció no vàlida.");
+                    }
+                    break;
+
+                case 3:
+                    sortir = true;
+                    System.out.println("Sortint del programa...");
+                    break;
+
+                default:
+                    System.out.println("Opció no vàlida.");
+            }
+
+
+            scanner.close();
+        }
+
+
+
 
     }
 }
