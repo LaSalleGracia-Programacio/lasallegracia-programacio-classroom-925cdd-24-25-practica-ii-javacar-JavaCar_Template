@@ -87,5 +87,45 @@ public class Main {
             }
         }
     }
+//Menú para que el administrador gestione vehículos, alquileres e ingresos
+    private static void menuAdministrador() {
+        boolean tornar = false;
+        while (!tornar) {
+            System.out.println("\n=== MODE ADMINISTRADOR ===");
+            System.out.println("1. Gestionar vehicles");
+            System.out.println("2. Consultar llista de vehicles disponibles");
+            System.out.println("3. Gestionar lloguers");
+            System.out.println("4. Gestionar sol·licituds");
+            System.out.println("5. Consultar ingressos acumulats");
+            System.out.println("6. Tornar al menú principal");
+            System.out.print("Seleccioneu una opció: ");
+
+            int opcio = escaner.nextInt();
+            escaner.nextLine();
+
+            switch (opcio) {
+                case 1:
+                    gestionarVehicles();
+                    break;
+                case 2:
+                    llistarTotsVehicles();
+                    break;
+                case 3:
+                    gestionarLloguers();
+                    break;
+                case 4:
+                    gestionarSolicituds();
+                    break;
+                case 5:
+                    mostrarIngressosTotals();
+                    break;
+                case 6:
+                    tornar = true;
+                    break;
+                default:
+                    System.out.println("Opció no vàlida. Intenteu-ho novament.");
+            }
+        }
+    }
     }
 }
