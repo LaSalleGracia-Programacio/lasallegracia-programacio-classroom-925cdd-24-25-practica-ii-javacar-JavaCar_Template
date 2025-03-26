@@ -63,5 +63,26 @@ public class Main {
                         }
                     }
                     break;
+
+                case 3:
+                    System.out.print("Ingrese la matrícula del vehículo: ");
+                    String matricula = scanner.nextLine();
+                    boolean found = false;
+                    for (Vehicle vehicle : vehicles) {
+                        if (vehicle.getMatricula().equals(matricula)) {
+                            found = true;
+                            System.out.println("Detalles del vehículo: ");
+                            System.out.println("Marca: " + vehicle.getMarca());
+                            System.out.println("Modelo: " + vehicle.getModel());
+                            System.out.println("Precio base: " + vehicle.getPreuBase());
+                            System.out.println("Etiqueta ambiental: " + vehicle.getEtiquetaAmbiental());
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("Vehículo no encontrado.");
+                    }
+                    break;
+
         }
 }
