@@ -762,5 +762,42 @@ public class Main {
         }
     }
 
+//Inicializa los vehículos disponibles con datos predeterminados, incluyendo coches, motos y furgonetas con sus respectivos detalles como matrícula, marca, modelo, motor y ruedas.
+    private static void inicialitzarVehicles() {
+
+        Roda[] rodesCotxe = new Roda[4];
+        Roda[] rodesMoto = new Roda[2];
+        for (int i = 0; i < rodesCotxe.length; i++) {
+            rodesCotxe[i] = new Roda("Michelin", 17.0);
+        }
+        for (int i = 0; i < rodesMoto.length; i++) {
+            rodesMoto[i] = new Roda("Pirelli", 19.0);
+        }
+
+
+        Motor motorCorolla = new Motor("Elèctric", 140);
+        Motor motorCBR600 = new Motor("Gasolina", 118);
+        Motor motorTransit = new Motor("Dièsel", 130);
+        Motor motorIbiza = new Motor("Gasolina", 110);
+        Motor motorGolf = new Motor("Gasolina", 150);
+        Motor motorMegane = new Motor("GLP", 115);
+        Motor motorMT07 = new Motor("Gasolina", 74);
+        Motor motorNinja650 = new Motor("Gasolina", 68);
+        Motor motorSprinter = new Motor("Dièsel", 170);
+        Motor motorJumper = new Motor("Dièsel", 120);
+
+
+        
+
+        vehicles.add(new Cotxe("1234ABC", "Toyota", "Corolla", 45.0, 5, motorCorolla, rodesCotxe));
+        vehicles.add(new Moto("5678DEF", "Honda", "CBR600", 30.0, 600, motorCBR600, rodesMoto));
+        vehicles.add(new Furgoneta("9012GHI", "Ford", "Transit", 60.0, 1500.0, motorTransit, rodesCotxe));
+        vehicles.add(new Cotxe("3456JKL", "Seat", "Ibiza", 35.0, 5, motorIbiza, rodesCotxe));
+        vehicles.add(new Cotxe("6789MNO", "Volkswagen", "Golf", 48.0, 5, motorGolf, rodesCotxe));
+        vehicles.add(new Cotxe("9876ZYX", "Renault", "Megane", 42.0, 5, motorMegane, rodesCotxe));
+        vehicles.add(new Moto("1357ACE", "Yamaha", "MT-07", 32.0, 700, motorMT07, rodesMoto));
+        vehicles.add(new Moto("2468BDF", "Kawasaki", "Ninja 650", 34.0, 650, motorNinja650, rodesMoto));
+        vehicles.add(new Furgoneta("1122KKK", "Mercedes", "Sprinter", 65.0, 1800.0, motorSprinter, rodesCotxe));
+        vehicles.add(new Furgoneta("3344LLL", "Citroën", "Jumper", 58.0, 1600.0, motorJumper, rodesCotxe));
     }
 }
