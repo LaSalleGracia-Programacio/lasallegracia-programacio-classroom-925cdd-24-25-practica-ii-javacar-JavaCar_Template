@@ -399,5 +399,149 @@ public class Main {
         System.out.println("Torna al menú i selecciona 'Gestionar sol·licituds'");
     }
 
+  //Permite al administrador agregar un nuevo vehículo, seleccionando tipo, matrícula, marca, modelo y otros detalles
+    private static void afegirVehicle() {
+        System.out.println("\n=== AFEGIR VEHICLE ===");
+        System.out.println("Seleccioneu el tipus de vehicle:");
+        System.out.println("1. Cotxe");
+        System.out.println("2. Moto");
+        System.out.println("3. Furgoneta");
+        System.out.print("Opció: ");
+
+
+        if (!escaner.hasNextInt()) {
+            System.out.println("Error: Ha de ser un número (1-3)");
+            escaner.nextLine();
+            return;
+        }
+        int tipus = escaner.nextInt();
+        escaner.nextLine();
+
+        if (tipus < 1 || tipus > 3) {
+            System.out.println("Tipus no vàlid.");
+            return;
+        }
+
+
+        System.out.print("Matrícula: ");
+        String matricula = escaner.nextLine();
+        if (matricula.isBlank()) {
+            System.out.println("La matrícula no pot estar buida");
+            return;
+        }
+
+        System.out.print("Marca: ");
+        String marca = escaner.nextLine();
+
+        System.out.print("Model: ");
+        String model = escaner.nextLine();
+
+
+        System.out.print("Preu base per dia: ");
+        if (!escaner.hasNextDouble()) {
+            System.out.println("Error: El preu ha de ser un número");
+            escaner.nextLine();
+            return;
+        }
+        double preu = escaner.nextDouble();
+        escaner.nextLine();
+        if (preu <= 0) {
+            System.out.println("El preu ha de ser positiu");
+            return;
+        }
+
+
+        System.out.print("Tipus de motor: ");
+        String tipusMotor = escaner.nextLine();
+
+        System.out.print("Potència del motor: ");
+        if (!escaner.hasNextInt()) {
+            System.out.println("Error: La potència ha de ser un número enter");
+            escaner.nextLine();
+            return;
+        }
+        int potenciaMotor = escaner.nextInt();
+        escaner.nextLine();
+        if (potenciaMotor <= 0) {
+            System.out.println("La potència ha de ser positiva");
+            return;
+        }
+        Motor motor = new Motor(tipusMotor, potenciaMotor);
+
+
+        System.out.print("Marca de les rodes: ");
+        String marcaRodes = escaner.nextLine();
+
+        System.out.print("Diàmetre de les rodes: ");
+        if (!escaner.hasNextDouble()) {
+            System.out.println("Error: El diàmetre ha de ser un número");
+            escaner.nextLine();
+            return;
+        }
+        double diametreRodes = escaner.nextDouble();
+        escaner.nextLine();
+        if (diametreRodes <= 0) {
+            System.out.println("El diàmetre ha de ser positiu");
+            return;
+        }
+
+        Roda[] rodes = new Roda[4];
+        for (int i = 0; i < rodes.length; i++) {
+            rodes[i] = new Roda(marcaRodes, diametreRodes);
+        }
+
+
+        switch (tipus) {
+            case 1:
+                System.out.print("Nombre de places: ");
+                if (!escaner.hasNextInt()) {
+                    System.out.println("Error: Nombre de places ha de ser enter");
+                    escaner.nextLine();
+                    return;
+                }
+                int places = escaner.nextInt();
+                escaner.nextLine();
+                if (places <= 0) {
+                    System.out.println("Les places han de ser positives");
+                    return;
+                }
+                vehicles.add(new Cotxe(matricula, marca, model, preu, places, motor, rodes));
+                break;
+
+            case 2:
+                System.out.print("Cilindrada: ");
+                if (!escaner.hasNextInt()) {
+                    System.out.println("Error: Cilindrada ha de ser enter");
+                    escaner.nextLine();
+                    return;
+                }
+                int cilindrada = escaner.nextInt();
+                escaner.nextLine();
+                if (cilindrada <= 0) {
+                    System.out.println("La cilindrada ha de ser positiva");
+                    return;
+                }
+                vehicles.add(new Moto(matricula, marca, model, preu, cilindrada, motor, rodes));
+                break;
+
+            case 3:
+                System.out.print("Capacitat de càrrega (kg): ");
+                if (!escaner.hasNextDouble()) {
+                    System.out.println("Error: Capacitat ha de ser número");
+                    escaner.nextLine();
+                    return;
+                }
+                double capacitat = escaner.nextDouble();
+                escaner.nextLine();
+                if (capacitat <= 0) {
+                    System.out.println("La capacitat ha de ser positiva");
+                    return;
+                }
+                vehicles.add(new Furgoneta(matricula, marca, model, preu, capacitat, motor, rodes));
+                break;
+        }
+
+        System.out.println("Vehicle afegit correctament.");
+    }
     }
 }
