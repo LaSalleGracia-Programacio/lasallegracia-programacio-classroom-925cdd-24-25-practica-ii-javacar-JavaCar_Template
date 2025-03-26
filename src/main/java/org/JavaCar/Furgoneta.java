@@ -2,7 +2,7 @@ package org.JavaCar;
 
 import java.util.List;
 
-class Furgoneta{
+class Furgoneta extends Vehicle {
     private double capacitatCarga;
 
     public Furgoneta(String matricula, String marca, String model, int anyFabricacio, String tipusCombustible, String etiquetaAmbiental, List <Roda> rodes, Motor motor, double capacitatCarga) {
@@ -15,4 +15,8 @@ class Furgoneta{
     }
 
 
+    @Override
+    public double calcularPreu(int dies) {
+        return 0;
+    }
 }

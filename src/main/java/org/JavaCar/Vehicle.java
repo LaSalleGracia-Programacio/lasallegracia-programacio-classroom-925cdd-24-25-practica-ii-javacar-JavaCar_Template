@@ -13,7 +13,7 @@ abstract class Vehicle implements Llogable {
     protected List<Roda> rodes;
     protected Motor motor;
 
-    public Vehicle(String matricula, String marca, String model, int anyFabricacio, String tipusCombustible, String etiquetaAmbiental, List<Roda> rodes, Motor motor) {
+    public Vehicle() {
         this.matricula = matricula;
         this.marca = marca;
         this.model = model;

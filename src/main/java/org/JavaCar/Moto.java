@@ -2,7 +2,7 @@ package org.JavaCar;
 
 import java.util.List;
 
-class Moto {
+class Moto extends Vehicle {
 
     private int cilindrada;
 

@@ -2,7 +2,7 @@ package org.JavaCar;
 
 import java.util.List;
 
-public class Cotxe {
+public class Cotxe extends Vehicle {
 
     private int nombrePlaces;
 
