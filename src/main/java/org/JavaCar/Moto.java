@@ -2,12 +2,12 @@ package org.JavaCar;
 
 import java.util.List;
 
-class Moto extends Vehicle {
+class Moto {
 
     private int cilindrada;
 
     public Moto(String matricula, String marca, String model, int anyFabricacio, String tipusCombustible, String etiquetaAmbiental, List<Roda> rodes, Motor motor, int cilindrada) {
-        super(matricula, marca, model, anyFabricacio, tipusCombustible, etiquetaAmbiental, rodes, motor);
+        super();
         this.cilindrada = cilindrada;
     }
 
