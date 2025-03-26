@@ -578,5 +578,50 @@ public class Main {
             System.out.println("Vehicle no trobat.");
         }
     }
+//Permite eliminar un vehículo de la lista de vehículos disponibles y alquilados
+    private static void eliminarVehicle() {
+        System.out.println("\n=== ELIMINAR VEHICLE ===");
+        llistarTotsVehicles();
+        System.out.print("Introduïu la matrícula del vehicle a eliminar: ");
+        String matricula = escaner.nextLine();
+
+        boolean trobat = false;
+        int index = -1;
+
+        for (int i = 0; i < vehicles.size(); i++) {
+            if (vehicles.get(i).getMatricula().equalsIgnoreCase(matricula)) {
+                index = i;
+                trobat = true;
+                break;
+            }
+        }
+
+        if (trobat) {
+            List<Vehicle> novaLlista = new ArrayList<>();
+            for (int i = 0; i < vehicles.size(); i++) {
+                if (i != index) {
+                    novaLlista.add(vehicles.get(i));
+                }
+            }
+            vehicles = novaLlista;
+
+            for (int i = 0; i < vehiclesLlogats.size(); i++) {
+                if (vehiclesLlogats.get(i).getMatricula().equalsIgnoreCase(matricula)) {
+                    List<Vehicle> nousLlogats = new ArrayList<>();
+                    for (int j = 0; j < vehiclesLlogats.size(); j++) {
+                        if (j != i) {
+                            nousLlogats.add(vehiclesLlogats.get(j));
+                        }
+                    }
+                    vehiclesLlogats = nousLlogats;
+                    break;
+                }
+            }
+
+            System.out.println("Vehicle eliminat correctament.");
+        } else {
+            System.out.println("Vehicle no trobat.");
+        }
+    }
     }
 }
