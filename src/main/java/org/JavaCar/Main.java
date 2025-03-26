@@ -127,5 +127,32 @@ public class Main {
             }
         }
     }
+//Calcula el precio de alquiler por día de un vehículo disponible
+    private static void calcularPreuLloguerDia() {
+        System.out.println("\n=== CALCULAR PREU DE LLOGUER PER DIA ===");
+        llistarVehiclesDisponibles();
+        System.out.print("Introduïu la matrícula del vehicle: ");
+        String matricula = escaner.nextLine();
+
+        Vehicle vehicle = trobarVehiclePerMatricula(matricula);
+        if (vehicle != null) {
+            boolean estaLlogat = false;
+            for (Vehicle v : vehiclesLlogats) {
+                if (v.getMatricula().equalsIgnoreCase(matricula)) {
+                    estaLlogat = true;
+                    break;
+                }
+            }
+
+            if (!estaLlogat) {
+                System.out.printf("Preu per dia del vehicle %s: %.2f€\n",
+                        vehicle.getMatricula(), vehicle.getPreuBase());
+            } else {
+                System.out.println("Vehicle no disponible (ja està llogat).");
+            }
+        } else {
+            System.out.println("Vehicle no trobat.");
+        }
+    }
     }
 }
