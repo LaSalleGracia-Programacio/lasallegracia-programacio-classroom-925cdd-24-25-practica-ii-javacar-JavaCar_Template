@@ -672,5 +672,60 @@ public class Main {
             }
         }
     }
+//Permite al administrador finalizar un alquiler, calcular el costo total y actualizar el estado del vehículo.
+    private static void finalitzarLloguer() {
+        System.out.println("\n=== FINALITZAR LLOGUER ===");
+
+        if (vehiclesLlogats.size() == 0) {
+            System.out.println("No hi ha vehicles llogats actualment.");
+            return;
+        }
+
+        System.out.println("Vehicles llogats:");
+        for (Vehicle vehicle : vehiclesLlogats) {
+            System.out.println("- " + vehicle.getMatricula() + " (" + vehicle.getMarca() + " " + vehicle.getModel() + ")");
+        }
+
+        System.out.print("Introduïu la matrícula del vehicle a retornar: ");
+        String matricula = escaner.nextLine();
+
+        Vehicle vehicle = trobarVehiclePerMatricula(matricula);
+
+        boolean estaLlogat = false;
+        int index = -1;
+        for (int i = 0; i < vehiclesLlogats.size(); i++) {
+            String matriculaLlogat = vehiclesLlogats.get(i).getMatricula();
+            String matriculaVehicle = "";
+            if (vehicle != null) {
+                matriculaVehicle = vehicle.getMatricula();
+            }
+            if (matriculaLlogat.equals(matriculaVehicle)) {
+                estaLlogat = true;
+                index = i;
+                break;
+            }
+        }
+
+        if (vehicle != null && estaLlogat) {
+            System.out.print("Introduïu els dies de lloguer: ");
+            int dies = escaner.nextInt();
+            escaner.nextLine();
+
+            double total = vehicle.calcularPreu(dies);
+            ingressosTotals += total;
+
+            List<Vehicle> novaListaLlogats = new ArrayList<>();
+            for (int i = 0; i < vehiclesLlogats.size(); i++) {
+                if (i != index) {
+                    novaListaLlogats.add(vehiclesLlogats.get(i));
+                }
+            }
+            vehiclesLlogats = novaListaLlogats;
+
+            System.out.printf("Lloguer finalitzat. Total a pagar: %.2f€\n", total);
+        } else {
+            System.out.println("Vehicle no trobat o no llogat.");
+        }
+    }
     }
 }
