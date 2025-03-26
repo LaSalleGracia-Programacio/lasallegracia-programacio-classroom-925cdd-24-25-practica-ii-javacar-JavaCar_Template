@@ -4,54 +4,66 @@ public abstract class Vehicle implements Llogable {
     protected String matricula;
     protected String marca;
     protected String model;
-    protected double PreuBase;
-    protected Motor Motor;
-    protected Roda[] Rodes;
-    protected String EtiquetaAmbiental;
+    protected double preuBase;
+    protected Motor motor;
+    protected Roda[] rodes;
+    protected EtiquetaMedioAmbiental etiquetaMedioAmbiental;
     protected boolean disponibilidad = true;
-    
-    public Vehicle(String Matr, String Marca, String Model, double preu,Motor Motor,Roda[] Rodes){
-        this.matricula = Matr;
-        this.marca = Marca;
-        this.model = Model;
-        this.PreuBase = preu;
-        this.Motor = Motor;
-        this.Rodes = Rodes;
-        //this.EtiquetaAmbiental = etiqueta;
 
+    public Vehicle(String matricula, String marca, String model, double preuBase, Motor motor, Roda[] rodes) {
+        this.matricula = matricula;
+        this.marca = marca;
+        this.model = model;
+        this.preuBase = preuBase;
+        this.motor = motor;
+        this.rodes = rodes;
     }
 
-    public String getMatricula(){
+    public String getMatricula() {
         return matricula;
     }
-    public String getMarca(){
+
+    public String getMarca() {
         return marca;
     }
-    public String getModel(){
+
+    public String getModel() {
         return model;
     }
-    public int getPreuBase(){
-        return (int) PreuBase;
-    }
-    public Motor getMotor(){
-        return Motor;
-    }
-    public Roda[] getRodes(){
-        return Rodes;
-    }
-    public double calcularPreu(int dies){
-        return this.PreuBase*dies;
+
+    public double getPreuBase() {
+        return preuBase;
     }
 
-    public String printVehicle(){
-        String form="Matricula: "+ getMatricula()+"\n" +
-                                   "Marca: "+getMarca()+"\n" +
-                                   "Model: "+getModel()+"\n" +
-                                   "PreuBase: "+getPreuBase()+"\n" +
-                                   "Tipus(Motor): "+Motor.getTipus()+"\n" +
-                                   "Potencia(Motor): "+Motor.getPotencia()+"\n";
-        for (Roda i : Rodes){
-            form+="Roda(marca): "+i.getMarca()+"\nRoda(Diametre): "+i.getDiametre()+"\n";
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public Roda[] getRodes() {
+        return rodes;
+    }
+
+    public EtiquetaMedioAmbiental getEtiquetaMedioAmbiental() {
+        return etiquetaMedioAmbiental;
+    }
+
+    public void setEtiquetaMedioAmbiental(EtiquetaMedioAmbiental etiquetaMedioAmbiental) {
+        this.etiquetaMedioAmbiental = etiquetaMedioAmbiental;
+    }
+
+    public double calcularPreu(int dies) {
+        return this.preuBase * dies;
+    }
+
+    public String printVehicle() {
+        String form = "Matricula: " + getMatricula() + "\n" +
+                "Marca: " + getMarca() + "\n" +
+                "Model: " + getModel() + "\n" +
+                "PreuBase: " + getPreuBase() + "\n" +
+                "Tipus(Motor): " + motor.getTipus() + "\n" +
+                "Potencia(Motor): " + motor.getPotencia() + "\n";
+        for (Roda i : rodes) {
+            form += "Roda(marca): " + i.getMarca() + "\nRoda(Diametre): " + i.getDiametre() + "\n";
         }
         System.out.println(form);
         return form;
