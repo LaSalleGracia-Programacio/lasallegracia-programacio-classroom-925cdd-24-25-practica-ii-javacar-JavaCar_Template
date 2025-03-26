@@ -117,5 +117,18 @@ public class Main {
                     }
                     break;
 
+                case 5:
+                    System.out.print("Ingrese su ID de cliente para ver el historial: ");
+                    String clientIdHistorial = scanner.nextLine();
+                    System.out.println("Historial de alquileres:");
+                    for (Lloguer alquiler : historial) {
+                        if (alquiler.getClientId().equals(clientIdHistorial)) {
+                            System.out.println("Vehículo: " + alquiler.getVehicle().getMarca() + " " + alquiler.getVehicle().getModel());
+                            System.out.println("Fechas: " + alquiler.getDataInici() + " - " + alquiler.getDataFi());
+                            System.out.println("Precio pagado: " + alquiler.getPreuPagat());
+                        }
+                    }
+                    break;
+
         }
 }
