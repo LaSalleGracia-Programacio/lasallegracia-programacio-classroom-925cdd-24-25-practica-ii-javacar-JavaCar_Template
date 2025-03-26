@@ -135,5 +135,21 @@ public class Main {
                     System.out.println("Ingresos totales: " + ingresosTotales);
                     break;
 
+                case 7:
+                    System.out.print("Ingrese la matrícula del vehículo para ver la etiqueta ambiental: ");
+                    matricula = scanner.nextLine();
+                    found = false;
+                    for (Vehicle vehicle : vehicles) {
+                        if (vehicle.getMatricula().equals(matricula)) {
+                            found = true;
+                            System.out.println("Etiqueta ambiental del vehículo: " + vehicle.getEtiquetaAmbiental());
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("Vehículo no encontrado.");
+                    }
+                    break;
+
         }
 }
