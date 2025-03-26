@@ -343,5 +343,54 @@ public class Main {
             System.out.println("Vehicle no trobat o no disponible.");
         }
     }
+//Gestiona las solicitudes de alquiler pendientes, permitiendo aprobar o rechazar solicitudes
+    private static void gestionarSolicituds() {
+        System.out.println("\n=== SOL·LICITUDS PENDENTS ===");
+        if (solicitudes.isEmpty()) {
+            System.out.println("No hi ha sol·licituds pendents.");
+            return;
+        }
+
+        for (int i = 0; i < solicitudes.size(); i++) {
+            Solicitud s = solicitudes.get(i);
+            System.out.println((i+1) + ". Matrícula: " + s.getMatricula() +
+                    ", Client: " + s.getClient() +
+                    ", Dies: " + s.getDies());
+        }
+
+        System.out.print("Seleccioneu una sol·licitud (0 per tornar): ");
+        int seleccio = escaner.nextInt();
+        escaner.nextLine();
+
+        if (seleccio > 0 && seleccio <= solicitudes.size()) {
+            Solicitud s = solicitudes.get(seleccio-1);
+
+            Vehicle vehicle = null;
+            for (Vehicle v : vehicles) {
+                if (v.getMatricula().equals(s.getMatricula())) {
+                    vehicle = v;
+                    break;
+                }
+            }
+
+            if (vehicle != null) {
+                System.out.println("1. Aprovar sol·licitud");
+                System.out.println("2. Rebutjar sol·licitud");
+                System.out.print("Seleccioneu una opció: ");
+                int opcio = escaner.nextInt();
+                escaner.nextLine();
+
+                if (opcio == 1) {
+                    vehiclesLlogats.add(vehicle);
+                    System.out.println("Lloguer iniciat per a " + s.getClient() +
+                            " amb el vehicle " + s.getMatricula());
+                }
+                solicitudes.remove(seleccio-1);
+            } else {
+                System.out.println("Vehicle no trobat.");
+            }
+        }
+    }
+
     }
 }
