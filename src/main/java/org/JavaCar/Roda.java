@@ -2,17 +2,18 @@ package org.JavaCar;
 
 public class Roda {
     private String marca;
-    private double diametre;
+    private int diametre;
 
-    public Roda(String Marca, double diametre){
-        this.marca = Marca;
+    public Roda(String marca, int diametre) {
+        this.marca = marca;
         this.diametre = diametre;
     }
 
-    public String getMarca(){
+    public String getMarca() {
         return marca;
     }
-    public double getDiametre(){
+
+    public int getDiametre() {
         return diametre;
     }
 }
