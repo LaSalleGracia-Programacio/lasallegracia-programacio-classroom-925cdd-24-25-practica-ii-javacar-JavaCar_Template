@@ -2,8 +2,8 @@ package org.JavaCar;
 
 public class Furgoneta extends Vehicle implements Llogable {
     private int capacitatCarga;
-    public Furgoneta(String Matr, String Marca, String Model, double preu, int Carga, Motor Motor,Roda[] Rodes){
-        super(Matr,Marca,Model,preu,Motor,Rodes);
+    public Furgoneta(String Matr, String Marca, String Model, double preu, int Carga, Motor Motor,Roda[] Rodes,int any, tipusVehicle tipus){
+        super(Matr,Marca,Model,preu,Motor,Rodes,any,tipus);
         this.capacitatCarga = Carga;
     }
     public int getCapacitatCarga(){

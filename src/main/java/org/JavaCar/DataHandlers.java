@@ -1,7 +1,12 @@
 package org.JavaCar;
 
-import javax.swing.colorchooser.ColorChooserComponentFactory;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -59,7 +64,7 @@ public class DataHandlers {
                         writer.write(i.printVehicle());
                         writer.write("Nº Plaçes:" + cotxe.getNombrePlaces());
                         writer.newLine();
-                    } else if(i instanceof Moto){
+                    } else if(i instanceof Moto ){
                         Moto moto = (Moto) i;
                         writer.write("Vehicle: Moto");
                         writer.newLine();
@@ -96,6 +101,8 @@ public class DataHandlers {
             double preuBase = 0;
             String tipusMotor = "";
             int potenciaMotor = 0;
+            int any = 0;
+            tipusVehicle tipus = null;
             String rodaMarca = "";
             double rodaDiametre = 0;
             int capacitatCarga = 0, nombrePlaces = 0, cilindrada = 0;
@@ -109,13 +116,13 @@ public class DataHandlers {
 
                     switch (type) {
                         case "Furgoneta":
-                            vehicle = new Furgoneta(matricula, marca, model, preuBase, capacitatCarga, motor, rodes.toArray(new Roda[0]));
+                            vehicle = new Furgoneta(matricula, marca, model, preuBase, capacitatCarga, motor, rodes.toArray(new Roda[0]),any,tipus);
                             break;
                         case "Cotxe":
-                            vehicle = new Cotxe(matricula, marca, model, preuBase, nombrePlaces, motor, rodes.toArray(new Roda[0]));
+                            vehicle = new Cotxe(matricula, marca, model, preuBase, nombrePlaces, motor, rodes.toArray(new Roda[0]),any,tipus);
                             break;
                         case "Moto":
-                            vehicle = new Moto(matricula, marca, model, preuBase, cilindrada, motor, rodes.toArray(new Roda[0]));
+                            vehicle = new Moto(matricula, marca, model, preuBase, cilindrada, motor, rodes.toArray(new Roda[0]),any,tipus);
                             break;
                     }
 
@@ -124,7 +131,7 @@ public class DataHandlers {
                     }
 
                     // Reiniciar variables para el siguiente vehículo
-                    matricula = ""; marca = ""; model = ""; preuBase = 0;
+                    matricula = ""; marca = ""; model = ""; preuBase = 0;any=0;tipus=null;
                     tipusMotor = ""; potenciaMotor = 0; rodes.clear();
                     capacitatCarga = 0; nombrePlaces = 0; cilindrada = 0;
                 }
@@ -275,26 +282,41 @@ public class DataHandlers {
     public static Furgoneta crearFurgoneta() {
         System.out.print("Introduce la matrícula: ");
         String matr = input.nextLine();
-        input.reset();
+
         System.out.print("Introduce la marca: ");
         String marca = input.nextLine();
-        input.reset();
+
         System.out.print("Introduce el modelo: ");
         String model = input.nextLine();
-        input.reset();
+
         System.out.print("Introduce el precio base: ");
         double preu = input.nextDouble();
-        input.reset();
+
         System.out.print("Introduce la capacidad de carga: ");
         int carga = input.nextInt();
         input.nextLine(); // Consumir nueva línea
-        input.reset();
+
+        System.out.print("Introduce el año del vehículo: ");
+        int any = input.nextInt();
+        input.nextLine(); // Consumir nueva línea
+
+        // Mini-menu for selecting tipusVehicle
+        System.out.println("Selecciona el tipo de vehículo:");
+        for (int i = 0; i < tipusVehicle.values().length; i++) {
+            System.out.println((i + 1) + ". " + tipusVehicle.values()[i].getatr());
+        }
+        System.out.print("Introduce el número correspondiente al tipo de vehículo: ");
+        int tipusIndex = input.nextInt() - 1;
+        input.nextLine(); // Consumir nueva línea
+        tipusVehicle tipusVeh = tipusVehicle.values()[tipusIndex];
+
         System.out.print("Introduce el tipo de motor: ");
         String tipusMotor = input.nextLine();
-        input.reset();
+
         System.out.print("Introduce la potencia del motor: ");
         int potenciaMotor = input.nextInt();
         input.nextLine(); // Consumir nueva línea
+
         Motor motor = new Motor(tipusMotor, potenciaMotor);
 
         Roda[] rodes = new Roda[4];
@@ -302,14 +324,13 @@ public class DataHandlers {
             System.out.println("Introduce los datos de la rueda " + (i + 1) + ":");
             System.out.print("Marca: ");
             String marcaRoda = input.nextLine();
-            input.reset();
             System.out.print("Diámetro: ");
             double diametreRoda = input.nextDouble();
             input.nextLine(); // Consumir nueva línea
             rodes[i] = new Roda(marcaRoda, diametreRoda);
         }
 
-        return new Furgoneta(matr, marca, model, preu, carga, motor, rodes);
+        return new Furgoneta(matr, marca, model, preu, carga, motor, rodes, any, tipusVeh);
     }
 
     /**
@@ -357,7 +378,21 @@ public class DataHandlers {
             rodes[i] = new Roda(marcaRoda, diametreRoda);
         }
 
-        return new Cotxe(matr, marca, model, preu, places, motor, rodes);
+        System.out.print("Introduce el año del vehículo: ");
+        int any = input.nextInt();
+        input.nextLine(); // Consumir nueva línea
+
+        // Mini-menu for selecting tipusVehicle
+        System.out.println("Selecciona el tipo de combustible del motor:");
+        for (int i = 0; i < tipusVehicle.values().length; i++) {
+            System.out.println((i + 1) + ". " + tipusVehicle.values()[i].getatr());
+        }
+        System.out.print("Introduce el número correspondiente al tipo de combustible: ");
+        int tipusIndex = input.nextInt() - 1;
+        input.nextLine(); // Consumir nueva línea
+        tipusVehicle tipusVeh = tipusVehicle.values()[tipusIndex];
+
+        return new Cotxe(matr, marca, model, preu, places, motor, rodes, any, tipusVeh);
     }
 
     /**
@@ -387,6 +422,20 @@ public class DataHandlers {
         int cilindrada = input.nextInt();
         input.nextLine(); // Consumir nueva línea
 
+        System.out.print("Introduce el año del vehículo: ");
+        int any = input.nextInt();
+        input.nextLine(); // Consumir nueva línea
+
+        // Mini-menu for selecting tipusVehicle
+        System.out.println("Selecciona el tipo de combustible del motor:");
+        for (int i = 0; i < tipusVehicle.values().length; i++) {
+            System.out.println((i + 1) + ". " + tipusVehicle.values()[i].getatr());
+        }
+        System.out.print("Introduce el número correspondiente al tipo de combustible: ");
+        int tipusIndex = input.nextInt() - 1;
+        input.nextLine(); // Consumir nueva línea
+        tipusVehicle tipusVeh = tipusVehicle.values()[tipusIndex];
+
         System.out.print("Introduce el tipo de motor: ");
         String tipusMotor = input.nextLine();
 
@@ -407,7 +456,7 @@ public class DataHandlers {
             rodes[i] = new Roda(marcaRoda, diametreRoda);
         }
 
-        return new Moto(matr, marca, model, preu, cilindrada, motor, rodes);
+        return new Moto(matr, marca, model, preu, cilindrada, motor, rodes, any, tipusVeh);
     }
 
     public static void llistarInventari(List<Vehicle> inventari){

@@ -28,22 +28,22 @@ public abstract class Vehicle implements Llogable {
     }
 
     private EtiquetaMedioAmbiental determinarEtiqueta(int any) {
-        String tipusCombustible = tipus.getTipo(); // Obtener tipo de combustible
+        String tipusCombustible = motor.getTipus(); // Obtener tipo de combustible
 
         // Lógica para determinar la etiqueta
-        if (tipusCombustible.equalsIgnoreCase("Eléctrico")) {
+        if (tipusCombustible.equalsIgnoreCase(tipusVehicle.ELECTRIC.getatr())) {
             return EtiquetaMedioAmbiental.ETIQUETA_0_EMISIONES;
-        } else if (tipusCombustible.equalsIgnoreCase("Híbrido Gasolina") && any >= 2018) {
+        } else if (tipusCombustible.equalsIgnoreCase(tipusVehicle.HIBRID_GASOLINA.getatr()) && any >= 2018) {
             return EtiquetaMedioAmbiental.ETIQUETA_ECO;
-        } else if (tipusCombustible.equalsIgnoreCase("Gas") || (tipusCombustible.equalsIgnoreCase("Híbrido Diesel") && any < 2018)) {
+        } else if (tipusCombustible.equalsIgnoreCase(tipusVehicle.GAS.getatr()) || (tipusCombustible.equalsIgnoreCase(tipusVehicle.HIBRID_DIESEL.getatr()) && any < 2018)) {
             return EtiquetaMedioAmbiental.ETIQUETA_ECO;
-        } else if (tipusCombustible.equalsIgnoreCase("Gasolina") && (any >= 2006)) {
+        } else if (tipusCombustible.equalsIgnoreCase(tipusVehicle.GASOLINA.getatr()) && (any >= 2006)) {
             return EtiquetaMedioAmbiental.ETIQUETA_C;
-        } else if (tipusCombustible.equalsIgnoreCase("Diesel") && (any >= 2014)) {
+        } else if (tipusCombustible.equalsIgnoreCase(tipusVehicle.DIESEL.getatr()) && (any >= 2014)) {
             return EtiquetaMedioAmbiental.ETIQUETA_C;
-        } else if (tipusCombustible.equalsIgnoreCase("Gasolina") && (any >= 2000)) {
+        } else if (tipusCombustible.equalsIgnoreCase(tipusVehicle.GASOLINA.getatr()) && (any >= 2000)) {
             return EtiquetaMedioAmbiental.ETIQUETA_B;
-        } else if (tipusCombustible.equalsIgnoreCase("Diesel") && (any >= 2005)) {
+        } else if (tipusCombustible.equalsIgnoreCase(tipusVehicle.DIESEL.getatr()) && (any >= 2005)) {
             return EtiquetaMedioAmbiental.ETIQUETA_B;
         } else {
             return null; // Sin etiqueta
