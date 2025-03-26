@@ -4,7 +4,7 @@ public class Cotxe extends Vehicle implements Llogable {
     private int nombrePlaces;
 
     public Cotxe(String Matr, String Marca, String Model, double preu, int places, Motor Motor, Roda[] Rodes, int any, tipusVehicle tipus) {
-        super(Matr, Marca, Model, preu, Motor, Rodes, any, tipus); // Llamada al constructor de Vehicle
+        super(Matr, Marca, Model, preu, Motor, Rodes, any, tipus);
         this.nombrePlaces = places;
     }
 
@@ -14,13 +14,13 @@ public class Cotxe extends Vehicle implements Llogable {
 
     @Override
     public double calcularPreu(int dies) {
-        return getPreuBase() * dies; // Cálculo simple para el precio
+        return getPreuBase() * dies;
     }
 
     @Override
     public String printVehicle() {
-        String form = super.printVehicle(); // Llamar al método de la clase padre
-        form += "Número de Plazas: " + getNombrePlaces() + "\n"; // Añadir información específica del coche
+        String form = super.printVehicle();
+        form += "Número de Plazas: " + getNombrePlaces() + "\n";
         return form;
     }
 }
