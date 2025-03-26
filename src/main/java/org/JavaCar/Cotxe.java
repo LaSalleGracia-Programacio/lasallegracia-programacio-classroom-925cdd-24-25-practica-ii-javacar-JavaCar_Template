@@ -2,24 +2,21 @@ package org.JavaCar;
 
 import java.util.List;
 
-class Cotxe extends Vehicle {
+public class Cotxe {
 
     private int nombrePlaces;
 
     public Cotxe(String matricula, String marca, String model, int anyFabricacio, String tipusCombustible, String etiquetaAmbiental, List<Roda> rodes, Motor motor, int nombrePlaces) {
-        super(matricula, marca, model, anyFabricacio, tipusCombustible, etiquetaAmbiental, rodes, motor);
+        super();
         this.nombrePlaces = nombrePlaces;
     }
 
-    public int getNombrePlaces() {
-        return nombrePlaces;
-    }
+    public int getNombrePlaces() { return nombrePlaces; }
 
-    @Override
+
     public double calcularPreu(int dies) {
         return 30.0*dies;
     }
-
 
 
 }

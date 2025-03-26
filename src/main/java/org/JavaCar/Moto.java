@@ -15,7 +15,11 @@ class Moto {
         return cilindrada;
     }
 
-    @Override
+    public double calcularPreu() {
+        return calcularPreu(0);
+    }
+
+
     public double calcularPreu(int dies) {
         return 20.0*dies;
     }
