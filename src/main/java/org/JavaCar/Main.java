@@ -52,5 +52,16 @@ public class Main {
                     }
                     break;
 
+                case 2:
+                    System.out.print("Ingrese el precio máximo: ");
+                    double precioMax = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.println("Vehículos dentro del presupuesto:");
+                    for (Vehicle vehicle : vehicles) {
+                        if (vehicle.calcularPreu(1) <= precioMax) {
+                            System.out.println(vehicle.getMarca() + " " + vehicle.getModel() + " - Precio: " + vehicle.calcularPreu(1));
+                        }
+                    }
+                    break;
         }
 }
