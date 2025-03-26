@@ -1,6 +1,6 @@
 package org.JavaCar;
 
-public class cotxe extends Vehicle {
+class Cotxe extends Vehicle {
 
     private int nombrePlaces;
 
@@ -8,6 +8,14 @@ public class cotxe extends Vehicle {
         super(matricula, marca, model, anyFabricacio, tipusCombustible, etiquetaAmbiental, rodes, motor);
         this.nombrePlaces = nombrePlaces;
     }
+
+    public int getNombrePlaces() { return nombrePlaces; }
+
+    @Override
+    public double calcularPreu(int dies) {
+        return 30.0*dies;
+    }
+
 
 
 }
