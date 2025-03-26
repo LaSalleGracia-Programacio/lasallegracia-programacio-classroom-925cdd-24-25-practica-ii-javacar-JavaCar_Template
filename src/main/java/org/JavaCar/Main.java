@@ -733,5 +733,14 @@ public class Main {
         System.out.printf("Ingressos totals generats: %.2f€\n", ingressosTotals);
 
     }
+//Añade la funcionalidad para buscar un vehículo por su matrícula.
+    private static Vehicle trobarVehiclePerMatricula(String matricula) {
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getMatricula().equalsIgnoreCase(matricula)) {
+                return vehicle;
+            }
+        }
+        return null;
+    }
     }
 }
