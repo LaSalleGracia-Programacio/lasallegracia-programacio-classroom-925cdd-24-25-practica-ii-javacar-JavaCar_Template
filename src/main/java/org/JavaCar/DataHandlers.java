@@ -319,7 +319,7 @@ public class DataHandlers {
             rodes[i] = new Roda(marcaRoda, diametreRoda);
         }
 
-        return new Furgoneta(matr, marca, model, preu, carga, motor, rodes, any, tipus);
+        return new Furgoneta(matr, marca, model, preu, carga, motor, rodes, any, tipus); // Asegúrate de que se pase el tipo
     }
 
     /**
