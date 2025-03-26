@@ -742,5 +742,25 @@ public class Main {
         }
         return null;
     }
+//Implementa el metodo para mostrar los detalles de un vehículo, incluyendo matrícula, marca, modelo, precio base, motor y características específicas por tipo de vehículo (coche, moto, furgoneta).
+    private static void mostrarDetallsVehicle(Vehicle vehicle) {
+        System.out.println("\nMatrícula: " + vehicle.getMatricula());
+        System.out.println("Marca/Model: " + vehicle.getMarca() + " " + vehicle.getModel());
+        System.out.println("Preu base/dia: " + vehicle.getPreuBase() + "€");
+        System.out.println("Motor: " + vehicle.getMotor().getTipus() + " (" + vehicle.getMotor().getPotencia() + "CV)");
+        System.out.println("Etiqueta ambiental: " + vehicle.getEtiquetaAmbiental());
+
+        if (vehicle instanceof Cotxe) {
+            System.out.println("Tipus: Cotxe");
+            System.out.println("Places: " + ((Cotxe) vehicle).getNombrePlaces());
+        } else if (vehicle instanceof Moto) {
+            System.out.println("Tipus: Moto");
+            System.out.println("Cilindrada: " + ((Moto) vehicle).getCilindrada() + "cc");
+        } else if (vehicle instanceof Furgoneta) {
+            System.out.println("Tipus: Furgoneta");
+            System.out.println("Capacitat càrrega: " + ((Furgoneta) vehicle).getCapacitatCarga() + "kg");
+        }
+    }
+
     }
 }
