@@ -309,5 +309,39 @@ public class Main {
         }
     }
 
+//Permite al usuario solicitar un alquiler de vehículo, verificando disponibilidad y registrando la solicitud
+    private static void solicitarLloguer() {
+        System.out.println("\n=== SOL·LICITAR LLOGUER ===");
+        llistarVehiclesDisponibles();
+        System.out.print("Introduïu la matrícula del vehicle: ");
+        String matricula = escaner.nextLine();
+        System.out.print("Introduïu el vostre nom: ");
+        String client = escaner.nextLine();
+        System.out.print("Introduïu els dies de lloguer: ");
+        int dies = escaner.nextInt();
+        escaner.nextLine();
+
+        boolean vehicleDisponible = false;
+        for (Vehicle vehicle : vehicles) {
+            boolean llogat = false;
+            for (Vehicle llogatVehicle : vehiclesLlogats) {
+                if (llogatVehicle.getMatricula().equals(vehicle.getMatricula())) {
+                    llogat = true;
+                    break;
+                }
+            }
+            if (vehicle.getMatricula().equals(matricula) && !llogat) {
+                vehicleDisponible = true;
+                break;
+            }
+        }
+
+        if (vehicleDisponible) {
+            solicitudes.add(new Solicitud(matricula, client, dies));
+            System.out.println("Solicitud registrada correctament.");
+        } else {
+            System.out.println("Vehicle no trobat o no disponible.");
+        }
+    }
     }
 }
