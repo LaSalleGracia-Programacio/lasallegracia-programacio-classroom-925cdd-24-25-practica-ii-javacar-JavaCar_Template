@@ -17,7 +17,6 @@ public abstract class Vehicle implements Llogable {
         this.preuBase = preuBase;
         this.motor = motor;
         this.rodes = rodes;
-        this.etiquetaMedioAmbiental = getEtiquetaMedioAmbiental();
     }
 
     public String getMatricula() {
@@ -48,6 +47,10 @@ public abstract class Vehicle implements Llogable {
         return etiquetaMedioAmbiental;
     }
 
+    public void setEtiquetaMedioAmbiental(EtiquetaMedioAmbiental etiquetaMedioAmbiental) {
+        this.etiquetaMedioAmbiental = etiquetaMedioAmbiental;
+    }
+
     public double calcularPreu(int dies) {
         return this.preuBase * dies;
     }
@@ -64,41 +67,5 @@ public abstract class Vehicle implements Llogable {
         }
         System.out.println(form);
         return form;
-    }
-
-    private EtiquetaMedioAmbiental getEtiquetaMedioAmbiental() {
-        if (motor.getTipus().equals(tipusVehicle.ELECTRIC.toString())) {
-            return EtiquetaMedioAmbiental.ETIQUETA_0_EMISIONES;
-        } else if (motor.getTipus().equals(tipusVehicle.HIBRID_GASOLINA.toString()) || motor.getTipus().equals(tipusVehicle.HIBRID_DIESEL.toString())) {
-            if (getAnyMatricula() >= 2014) {
-                return EtiquetaMedioAmbiental.ETIQUETA_ECO;
-            } else {
-                return EtiquetaMedioAmbiental.ETIQUETA_C;
-            }
-        } else if (motor.getTipus().equals(tipusVehicle.GASOLINA.toString())) {
-            if (getAnyMatricula() >= 2006) {
-                return EtiquetaMedioAmbiental.ETIQUETA_C;
-            } else if (getAnyMatricula() >= 2001) {
-                return EtiquetaMedioAmbiental.ETIQUETA_B;
-            } else {
-                return null;
-            }
-        } else if (motor.getTipus().equals(tipusVehicle.DIESEL.toString())) {
-            if (getAnyMatricula() >= 2015) {
-                return EtiquetaMedioAmbiental.ETIQUETA_C;
-            } else if (getAnyMatricula() >= 2006) {
-                return EtiquetaMedioAmbiental.ETIQUETA_B;
-            } else {
-                return null;
-            }
-        } else {
-            return null;
-        }
-    }
-
-    private int getAnyMatricula() {
-        String matricula = getMatricula();
-        String any = matricula.substring(4, 8);
-        return Integer.parseInt(any);
     }
 }
