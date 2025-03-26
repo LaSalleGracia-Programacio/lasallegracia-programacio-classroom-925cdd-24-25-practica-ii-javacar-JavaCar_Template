@@ -185,5 +185,23 @@ public class Main {
             System.out.println("Vehicle no trobat.");
         }
     }
+//Muestra la lista de vehículos disponibles que no están alquilados
+    private static void llistarVehiclesDisponibles() {
+        System.out.println("\n=== VEHICLES DISPONIBLES ===");
+        for (Vehicle vehicle : vehicles) {
+            boolean estaLlogat = false;
+
+            for (Vehicle llogat : vehiclesLlogats) {
+                if (llogat.getMatricula().equals(vehicle.getMatricula())) {
+                    estaLlogat = true;
+                    break;
+                }
+            }
+
+            if (!estaLlogat) {
+                mostrarDetallsVehicle(vehicle);
+            }
+        }
+    }
     }
 }
