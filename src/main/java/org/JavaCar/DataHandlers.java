@@ -344,6 +344,16 @@ public class DataHandlers {
         int potenciaMotor = input.nextInt();
         input.nextLine(); // Consumir nueva línea
 
+        // Solicitar el año del vehículo
+        System.out.print("Introduce el año del vehículo: ");
+        int any = input.nextInt();
+        input.nextLine(); // Consumir nueva línea
+
+        // Solicitar el tipo de vehículo
+        System.out.print("Introduce el tipo de vehículo (GASOLINA, ELECTRIC, HIBRID_DIESEL, DIESEL, HIBRID_GASOLINA): ");
+        String tipusVeh = input.nextLine().toUpperCase();
+        tipusVehicle tipus = tipusVehicle.valueOf(tipusVeh); // Convertir a enum
+
         Motor motor = new Motor(tipusMotor, potenciaMotor);
 
         Roda[] rodes = new Roda[4];
@@ -357,7 +367,7 @@ public class DataHandlers {
             rodes[i] = new Roda(marcaRoda, diametreRoda);
         }
 
-        return new Cotxe(matr, marca, model, preu, places, motor, rodes);
+        return new Cotxe(matr, marca, model, preu, places, motor, rodes, any, tipus);
     }
 
     /**
