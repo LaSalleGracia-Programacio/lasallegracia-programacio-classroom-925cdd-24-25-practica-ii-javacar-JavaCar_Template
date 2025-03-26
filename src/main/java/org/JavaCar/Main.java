@@ -44,5 +44,13 @@ public class Main {
             int opcion = scanner.nextInt();
             scanner.nextLine();
 
+            switch (opcion) {
+                case 1:
+                    System.out.println("Vehículos disponibles:");
+                    for (Vehicle vehicle : vehicles) {
+                        System.out.println(vehicle.getMarca() + " " + vehicle.getModel());
+                    }
+                    break;
+
         }
 }
