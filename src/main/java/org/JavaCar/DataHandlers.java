@@ -275,26 +275,37 @@ public class DataHandlers {
     public static Furgoneta crearFurgoneta() {
         System.out.print("Introduce la matrícula: ");
         String matr = input.nextLine();
-        input.reset();
+
         System.out.print("Introduce la marca: ");
         String marca = input.nextLine();
-        input.reset();
+
         System.out.print("Introduce el modelo: ");
         String model = input.nextLine();
-        input.reset();
+
         System.out.print("Introduce el precio base: ");
         double preu = input.nextDouble();
-        input.reset();
+
         System.out.print("Introduce la capacidad de carga: ");
         int carga = input.nextInt();
         input.nextLine(); // Consumir nueva línea
-        input.reset();
+
         System.out.print("Introduce el tipo de motor: ");
         String tipusMotor = input.nextLine();
-        input.reset();
+
         System.out.print("Introduce la potencia del motor: ");
         int potenciaMotor = input.nextInt();
         input.nextLine(); // Consumir nueva línea
+
+        // Solicitar el año del vehículo
+        System.out.print("Introduce el año del vehículo: ");
+        int any = input.nextInt();
+        input.nextLine(); // Consumir nueva línea
+
+        // Solicitar el tipo de vehículo
+        System.out.print("Introduce el tipo de vehículo (GASOLINA, ELECTRIC, HIBRID_DIESEL, DIESEL, HIBRID_GASOLINA): ");
+        String tipusVeh = input.nextLine().toUpperCase();
+        tipusVehicle tipus = tipusVehicle.valueOf(tipusVeh); // Convertir a enum
+
         Motor motor = new Motor(tipusMotor, potenciaMotor);
 
         Roda[] rodes = new Roda[4];
@@ -302,14 +313,13 @@ public class DataHandlers {
             System.out.println("Introduce los datos de la rueda " + (i + 1) + ":");
             System.out.print("Marca: ");
             String marcaRoda = input.nextLine();
-            input.reset();
             System.out.print("Diámetro: ");
             double diametreRoda = input.nextDouble();
             input.nextLine(); // Consumir nueva línea
             rodes[i] = new Roda(marcaRoda, diametreRoda);
         }
 
-        return new Furgoneta(matr, marca, model, preu, carga, motor, rodes);
+        return new Furgoneta(matr, marca, model, preu, carga, motor, rodes, any, tipus);
     }
 
     /**
