@@ -84,5 +84,38 @@ public class Main {
                     }
                     break;
 
+                case 4:
+                    System.out.print("Ingrese la matrícula del vehículo para alquilar: ");
+                    matricula = scanner.nextLine();
+                    Vehicle vehicleAlquilado = null;
+                    for (Vehicle vehicle : vehicles) {
+                        if (vehicle.getMatricula().equals(matricula)) {
+                            vehicleAlquilado = vehicle;
+                            break;
+                        }
+                    }
+                    if (vehicleAlquilado != null) {
+                        System.out.print("Ingrese su ID de cliente: ");
+                        String clientId = scanner.nextLine();
+                        System.out.print("Ingrese la fecha de inicio (yyyy-mm-dd): ");
+                        LocalDate fechaInicio = LocalDate.parse(scanner.nextLine());
+                        System.out.print("Ingrese la fecha de fin (yyyy-mm-dd): ");
+                        LocalDate fechaFin = LocalDate.parse(scanner.nextLine());
+
+                        int dias = fechaInicio.until(fechaFin).getDays();
+                        double precioTotal = vehicleAlquilado.calcularPreu(dias);
+
+                        if (dias > 7) {
+                            precioTotal *= 0.9;
+                        }
+
+                        Lloguer alquiler = new Lloguer(vehicleAlquilado, clientId, fechaInicio, fechaFin, precioTotal);
+                        historial.add(alquiler);
+                        System.out.println("Alquiler registrado con éxito. Precio total: " + precioTotal);
+                    } else {
+                        System.out.println("Vehículo no encontrado.");
+                    }
+                    break;
+
         }
 }
