@@ -13,7 +13,7 @@ public class Roda {
         return marca;
     }
 
-    public int getDiametre() {
+    public double getDiametre() {
         return diametre;
     }
 }
