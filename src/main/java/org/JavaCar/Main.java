@@ -203,5 +203,39 @@ public class Main {
             }
         }
     }
+//Filtra y muestra vehículos disponibles dentro de un rango de precios especificado
+    private static void filtrarPerRangPreu() {
+        System.out.println("\n=== FILTRAR PER RANG DE PREUS ===");
+        System.out.print("Introduïu el preu mínim: ");
+        double preuMinim = escaner.nextDouble();
+        System.out.print("Introduïu el preu màxim: ");
+        double preuMaxim = escaner.nextDouble();
+        escaner.nextLine();
+
+        List<Vehicle> filtrats = new ArrayList<>();
+
+        List<Vehicle> perPreuMaxim = GestorLloguers.filtrarPerPreu(vehicles, preuMaxim);
+
+        for (Vehicle vehicle : perPreuMaxim) {
+            if (vehicle.getPreuBase() >= preuMinim) {
+                boolean estaLlogat = false;
+                for (Vehicle llogat : vehiclesLlogats) {
+                    if (llogat.getMatricula().equals(vehicle.getMatricula())) {
+                        estaLlogat = true;
+                        break;
+                    }
+                }
+
+                if (!estaLlogat) {
+                    filtrats.add(vehicle);
+                }
+            }
+        }
+
+        System.out.println("\nResultats del filtre:");
+        for (Vehicle vehicle : filtrats) {
+            mostrarDetallsVehicle(vehicle);
+        }
+    }
     }
 }
