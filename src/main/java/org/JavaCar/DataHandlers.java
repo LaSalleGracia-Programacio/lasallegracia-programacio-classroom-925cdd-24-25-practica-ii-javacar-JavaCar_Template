@@ -529,9 +529,6 @@ public class DataHandlers {
                 System.out.println("Nº Plaçes: "+auxCotxe.getNombrePlaces());
                 System.out.println("\n\n\n QUANTITAT A PAGAR:"+ auxCotxe.calcularPreu(dies));
             }
-
-
-
         }
     }
 }
