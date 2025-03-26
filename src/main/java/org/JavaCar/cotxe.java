@@ -1,5 +1,7 @@
 package org.JavaCar;
 
+import java.util.List;
+
 class Cotxe extends Vehicle {
 
     private int nombrePlaces;
@@ -9,7 +11,9 @@ class Cotxe extends Vehicle {
         this.nombrePlaces = nombrePlaces;
     }
 
-    public int getNombrePlaces() { return nombrePlaces; }
+    public int getNombrePlaces() {
+        return nombrePlaces;
+    }
 
     @Override
     public double calcularPreu(int dies) {
