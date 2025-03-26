@@ -727,5 +727,11 @@ public class Main {
             System.out.println("Vehicle no trobat o no llogat.");
         }
     }
+    //Añade la funcionalidad para mostrar los ingresos totales generados por los alquileres.
+    private static void mostrarIngressosTotals() {
+        System.out.println("\n=== INGRESSOS TOTALS ACUMULATS ===");
+        System.out.printf("Ingressos totals generats: %.2f€\n", ingressosTotals);
+
+    }
     }
 }
