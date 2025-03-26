@@ -21,5 +21,12 @@ public class Main {
         Motor motorFurgoneta = new Motor("diesel", 130);
         Roda[] rodesFurgoneta = {new Roda("Bridgestone", 15), new Roda("Bridgestone", 15)};
         Furgoneta furgoneta = new Furgoneta("789GHI", "Ford", "Transit", 80.0, 1500, motorFurgoneta, rodesFurgoneta);
+
+        List<Vehicle> vehicles = new ArrayList<>();
+        vehicles.add(cotxe);
+        vehicles.add(moto);
+        vehicles.add(furgoneta);
+
+        List<Vehicle> historial = new ArrayList<>();
     }
 }
