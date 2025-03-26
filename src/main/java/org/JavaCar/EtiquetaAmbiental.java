@@ -1,4 +1,4 @@
 package org.JavaCar;
 
-public class EtiquetaAmbiental {
+public enum EtiquetaAmbiental {
 }
