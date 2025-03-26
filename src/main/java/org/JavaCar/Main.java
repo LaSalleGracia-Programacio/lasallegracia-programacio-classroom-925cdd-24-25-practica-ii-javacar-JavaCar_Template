@@ -43,5 +43,49 @@ public class Main {
         }
         escaner.close();
     }
+//Menú para que el usuario consulte y solicite alquileres de vehículos
+    private static void menuUsuari() {
+        boolean tornar = false;
+        while (!tornar) {
+            System.out.println("\n=== MODE USUARI ===");
+            System.out.println("1. Calcular preu de lloguer per dia");
+            System.out.println("2. Calcular cost total del lloguer");
+            System.out.println("3. Buscar vehicles disponibles");
+            System.out.println("4. Filtrar per rang de preus");
+            System.out.println("5. Filtrar per tipus de vehicle");
+            System.out.println("6. Solicitar lloguer");
+            System.out.println("7. Tornar al menú principal");
+            System.out.print("Seleccioneu una opció: ");
+
+            int opcio = escaner.nextInt();
+            escaner.nextLine();
+
+            switch (opcio) {
+                case 1:
+                    calcularPreuLloguerDia();
+                    break;
+                case 2:
+                    calcularCostTotalLloguer();
+                    break;
+                case 3:
+                    llistarVehiclesDisponibles();
+                    break;
+                case 4:
+                    filtrarPerRangPreu();
+                    break;
+                case 5:
+                    filtrarPerTipusVehicle();
+                    break;
+                case 6:
+                    solicitarLloguer();
+                    break;
+                case 7:
+                    tornar = true;
+                    break;
+                default:
+                    System.out.println("Opció no vàlida. Intenteu-ho novament.");
+            }
+        }
+    }
     }
 }
