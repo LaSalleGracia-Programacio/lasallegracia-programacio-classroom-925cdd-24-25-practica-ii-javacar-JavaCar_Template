@@ -392,5 +392,12 @@ public class Main {
         }
     }
 
+//Información sobre cómo iniciar un alquiler, redirigiendo al usuario al menú de gestión de solicitudes
+    private static void iniciarLloguer() {
+        System.out.println("\n=== INICIAR LLOGUER ===");
+        System.out.println("Aquesta opció s'ha de fer des de 'Gestionar sol·licituds'");
+        System.out.println("Torna al menú i selecciona 'Gestionar sol·licituds'");
+    }
+
     }
 }
