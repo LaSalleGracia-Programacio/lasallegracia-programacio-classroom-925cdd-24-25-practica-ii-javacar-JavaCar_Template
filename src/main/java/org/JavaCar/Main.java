@@ -130,5 +130,10 @@ public class Main {
                     }
                     break;
 
+                case 6:
+                    double ingresosTotales = historial.stream().mapToDouble(Lloguer::getPreuPagat).sum();
+                    System.out.println("Ingresos totales: " + ingresosTotales);
+                    break;
+
         }
 }
