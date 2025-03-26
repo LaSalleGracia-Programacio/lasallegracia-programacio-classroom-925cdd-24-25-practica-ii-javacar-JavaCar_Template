@@ -154,5 +154,36 @@ public class Main {
             System.out.println("Vehicle no trobat.");
         }
     }
+//Calcula el coste total del alquiler de un vehículo según su duración
+    private static void calcularCostTotalLloguer() {
+        System.out.println("\n=== CALCULAR COST TOTAL DEL LLOGUER ===");
+        llistarVehiclesDisponibles();
+        System.out.print("Introduïu la matrícula del vehicle: ");
+        String matricula = escaner.nextLine();
+
+        Vehicle vehicle = trobarVehiclePerMatricula(matricula);
+        if (vehicle != null) {
+            boolean estaLlogat = false;
+            for (Vehicle v : vehiclesLlogats) {
+                if (v.getMatricula().equalsIgnoreCase(matricula)) {
+                    estaLlogat = true;
+                    break;
+                }
+            }
+
+            if (!estaLlogat) {
+                System.out.print("Introduïu la durada del lloguer en dies: ");
+                int dies = escaner.nextInt();
+                escaner.nextLine();
+
+                double costTotal = vehicle.calcularPreu(dies);
+                System.out.printf("Cost total del lloguer per %d dies: %.2f€\n", dies, costTotal);
+            } else {
+                System.out.println("Vehicle no disponible (ja està llogat).");
+            }
+        } else {
+            System.out.println("Vehicle no trobat.");
+        }
+    }
     }
 }
